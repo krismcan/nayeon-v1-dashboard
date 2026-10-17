@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#061125" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'" />
+  <meta name="robots" content="noindex,nofollow,noarchive" />
+  <meta name="description" content="Nayeon v1: evidence-led engineering progress, architecture closure, release gates and capability roadmap." />
+  <meta property="og:title" content="Nayeon v1 | Progress & Readiness" />
+  <meta property="og:description" content="A transparent, read-only development dashboard built from verified architecture and release evidence." />
+  <title>Nayeon v1 — Development Dashboard</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="backdrop" aria-hidden="true"></div>
+  <div class="shell">
+    <header class="topbar">
+      <a class="brand" href="#overview" aria-label="Nayeon v1 dashboard home"><span class="brand-mark">N<span class="brand-spark">✦</span></span><span>nayeon<span class="brand-v">v1</span><small>ENGINEERING INTELLIGENCE</small></span></a>
+      <nav class="nav" aria-label="Main navigation">
+        <a class="active" href="#overview">Overview</a>
+        <a href="#capabilities">Capabilities</a>
+        <a href="#phases">Architecture</a>
+        <a href="#roadmap">Roadmap</a>
+      </nav>
+      <div class="top-actions"><span class="status-pill"><span class="status-dot"></span> READ-ONLY PUBLIC VIEW</span><button id="methodButton" class="icon-button" type="button" aria-label="Methodology and source definitions" title="Methodology">ⓘ</button></div>
+    </header>
+
+    <main id="overview">
+      <div class="hero">
+        <div>
+          <p class="eyebrow"><span class="line"></span> VERIFIED PRODUCT ENGINEERING · OCTOBER 2026</p>
+          <h1>Nayeon <span>v1</span><small>Progress & Readiness Dashboard</small></h1>
+          <p class="hero-copy">From trusted foundations to a real-world AI assistant. A transparent view of what we've built, what's in progress, and what remains before release.</p>
+          <div class="hero-meta"><span class="live-pulse"></span><span id="snapshotLabel">Verified engineering snapshot</span><span class="meta-separator">·</span><span id="snapshotDate">17 Oct 2026</span></div>
+        </div>
+        <div class="hero-aside"><span>PROJECT / NAYEON v1</span><div class="hero-digital" aria-hidden="true"><span class="orb orb-one"></span><span class="orb orb-two"></span><span class="orb orb-three"></span><span class="orbit-ring"></span><span class="hero-letter">N</span></div><small>BUILDING A PERSONAL AI ASSISTANT<br/>FOR REAL-WORLD USE</small></div>
+      </div>
+
+      <section class="kpi-grid" aria-label="Primary engineering indicators">
+        <article class="panel kpi capability-kpi">
+          <div class="panel-head"><span class="head-icon purple" data-icon="target"></span><div><h2>Capability evidence</h2><p>Workbook audit classifications</p></div></div>
+          <div class="cap-kpi-inner">
+            <div class="donut-wrap"><div class="donut evidence-donut" id="evidenceDonut"><div class="donut-center"><strong>16</strong><span>reviewed<br/>capabilities</span></div></div></div>
+            <div class="legend vertical"><div><span class="swatch aqua"></span><span>Scoped foundations</span><strong id="boundedCount">7</strong></div><div><span class="swatch amber"></span><span>Not yet started</span><strong id="notStartedCount">8</strong></div><div><span class="swatch magenta"></span><span>Optional future</span><strong id="futureCount">1</strong></div></div>
+          </div><p class="panel-foot muted">Classification only · no invented readiness %</p>
+        </article>
+        <article class="panel kpi phases-kpi">
+          <div class="panel-head"><span class="head-icon sky" data-icon="layers"></span><div><h2>Architecture phases</h2><p>Audited v1 phase closure</p></div></div>
+          <div class="kpi-value"><span id="phaseFraction">5 / 19</span><strong id="architecturePct">26.3%</strong></div>
+          <div class="progress-track big"><div id="archProgress" class="progress-fill" style="width:26.3%"></div></div>
+          <div class="micro-stats"><span><b id="phaseComplete">5</b> complete</span><span><b id="phaseActive">5</b> active</span><span><b id="phasePlanned">9</b> planned</span></div>
+          <p class="panel-foot">Closure of major architecture phases, not total product readiness.</p>
+        </article>
+        <article class="panel kpi gates-kpi">
+          <div class="panel-head"><span class="head-icon rose" data-icon="shield"></span><div><h2>Release acceptance</h2><p>Independent end-user gates</p></div></div>
+          <div class="kpi-value plain"><span id="gateFraction">0 / 12</span><span class="label-warn">NOT YET VERIFIED</span></div>
+          <div class="progress-track big"><div id="gateProgress" class="progress-fill rose-fill" style="width:0%"></div></div>
+          <p class="panel-foot">Engineering milestones are not substitutes for clean-device acceptance.</p>
+          <a class="panel-link" href="#gates">Explore all 12 gates <span>↗</span></a>
+        </article>
+        <article class="panel kpi milestone-kpi">
+          <div class="panel-head"><span class="head-icon blue" data-icon="flag"></span><div><h2>Latest closed milestone</h2><p>Verified and remotely sealed</p></div></div>
+          <div class="milestone-number" id="milestoneValue">Phase 8.31</div>
+          <p class="milestone-description">Offline conversation session · independently reviewed and regression-tested</p>
+          <div class="milestone-footer"><span class="verified">✓ VERIFIED CLOSE</span><span>17 OCT 2026</span></div>
+        </article>
+      </section>
+
+      <section class="two-column" id="capabilities" aria-label="Capability evidence and architecture analysis">
+        <article class="panel chart-panel">
+          <div class="section-heading"><div><p class="eyebrow tiny">CAPABILITY INVENTORY</p><h2>Where every capability stands</h2><p>All 16 areas from the master review — ranked by evidence category, not unverified percentages.</p></div><span class="small-tag">16 / 16 tracked</span></div>
+          <div class="filters" id="capFilters" aria-label="Filter capabilities by pillar"></div>
+          <div class="capability-list" id="capabilityList"></div>
+          <div class="chart-note"><span class="note-symbol">ⓘ</span> <span>“Scoped foundation” means bounded engineering evidence exists, not that the full user-facing capability is ready.</span></div>
+        </article>
+        <div class="side-stack">
+          <article class="panel phase-distribution-panel">
+            <div class="section-heading compact"><div><p class="eyebrow tiny">FORMAL PHASE STATUS</p><h2>19-phase distribution</h2><p>Strict closure accounting</p></div><span class="small-tag">PHASES 0—18</span></div>
+            <div class="phase-distribution"><div id="phaseDonut" class="donut phase-donut"><div class="donut-center"><strong>19</strong><span>planned</span></div></div><div class="phase-breakdown" id="phaseBreakdown"></div></div>
+            <div class="segmented-distribution" id="distributionBar" aria-label="Phases by status"></div>
+          </article>
+          <article class="panel quality-panel">
+            <div class="section-heading compact"><div><p class="eyebrow tiny">ENGINEERING ASSURANCE</p><h2>Quality evidence</h2><p>Latest authoritative Windows result</p></div><span class="head-icon green" data-icon="check"></span></div>
+            <div class="quality-number"><strong id="testPassed">2,572</strong><span> / <span id="testTotal">2,572</span> tests passed</span></div>
+            <div class="quality-strip"><div class="quality-fill"></div></div>
+            <div class="quality-points"><span><span class="check-badge">✓</span> Independent security review</span><span><span class="check-badge">✓</span> Clean-clone regression</span><span><span class="check-badge">✓</span> Annotated seals verified</span></div>
+            <p class="fineprint">A passing engineering regression does not mean the product has passed its release gates.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="pillars" class="pillars-block">
+        <div class="section-heading outside"><div><p class="eyebrow tiny">THE FIVE DEVELOPMENT PILLARS</p><h2>Architecture, organised</h2><p>Each of the 19 architecture phases is assigned once for these group-level charts. Click a pillar to filter the detail below.</p></div><span class="small-tag">SOURCE: MASTER BUILD PLAN</span></div>
+        <div class="pillar-grid" id="pillarsGrid"></div>
+      </section>
+
+      <section id="phases" class="panel architecture-section">
+        <div class="section-heading"><div><p class="eyebrow tiny">MASTER ARCHITECTURE REGISTER</p><h2>Phase-by-phase progress</h2><p>A complete, searchable view of the 19 major v1 phases and their formal exit status.</p></div><span class="small-tag">STRICT STATUS · NO PARTIAL CREDIT</span></div>
+        <div class="phase-controls"><div class="search-wrap"><span data-icon="search"></span><input id="phaseSearch" type="search" placeholder="Search the architecture roadmap..." aria-label="Search phases" autocomplete="off" /></div><div class="select-wrap"><label for="phaseFilter">Status</label><select id="phaseFilter"><option value="all">All statuses</option><option value="COMPLETE">Complete</option><option value="IN PROGRESS">In progress</option><option value="NOT STARTED">Not started</option></select></div></div>
+        <div class="phase-list" id="phaseList"></div><div id="phaseEmpty" class="no-results" hidden>No matching phases. Try a different search or status.</div>
+      </section>
+
+      <section id="roadmap" class="panel roadmap-section">
+        <div class="section-heading"><div><p class="eyebrow tiny">VERIFIED DEVELOPMENT HISTORY</p><h2>From foundations to v1</h2><p>Recent milestone closures and the next boundary — without implying a production launch.</p></div><span class="small-tag">SOURCE: VERIFIED MASTER RECORDS</span></div>
+        <div class="timeline" id="roadmapTimeline"></div>
+        <div class="roadmap-insights"><div><strong>5 of 9</strong><span>Foundation-phase exits closed (0–8)</span></div><div><strong>0 of 10</strong><span>User-facing / release-phase exits closed (9–18)</span></div><div><strong>0 of 12</strong><span>Full release gates independently verified</span></div></div>
+        <div class="history-heading"><div><h3>Verified regression & Git history</h3><p>Passing suite counts by sealed milestone, not a product-readiness trend.</p></div><span>RECENT HISTORY</span></div>
+        <div class="history-grid" id="historyGrid"></div>
+      </section>
+
+      <section id="gates" class="panel gates-section">
+        <div class="section-heading"><div><p class="eyebrow tiny">WHAT RELEASE ACTUALLY REQUIRES</p><h2>Acceptance gate tracker</h2><p>These are end-to-end, normal-user journeys. All are still open under the master workbook's strict definition.</p></div><span class="small-tag">0 / 12 VERIFIED</span></div>
+        <div class="gates-grid" id="gatesGrid"></div>
+      </section>
+
+      <footer class="footer"><div><span class="footer-brand">NAYEON<span> v1</span></span><p>Transparent engineering progress. Built from an audited master, not a marketing estimate.</p></div><div class="footer-links"><a id="repoLink" href="https://github.com/krismcan/Mark-LV/tree/nayeon-v1" target="_blank" rel="noopener noreferrer">Public engineering repository ↗</a><button type="button" class="footer-link-button" id="footerMethod">Metric methodology ↗</button><span id="footerDate">Data snapshot · 17 October 2026</span></div></footer>
+    </main>
+  </div>
+  <dialog id="detailDialog" class="detail-dialog"><form method="dialog"><button class="close-dialog" aria-label="Close detail">✕</button></form><div id="detailDialogBody"></div></dialog>
+  <dialog id="methodDialog" class="detail-dialog methodology-dialog"><form method="dialog"><button class="close-dialog" aria-label="Close methodology">✕</button></form><p class="eyebrow tiny">HOW WE MEASURE PROGRESS</p><h2>Transparent by design.</h2><div id="methodBody"></div></dialog>
+  <script src="data/snapshot.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
