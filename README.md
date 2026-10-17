@@ -4,7 +4,7 @@ Public, **read-only** interactive dashboard summarising a reviewed, sanitised 17
 
 - Architecture: 5/19 phases closed (26.3%).
 - Release acceptance: 0/12 gates verified.
-- Authoritative regression: 2,572/2,572 passing.
+- Authoritative regression: 2,617/2,617 passing (Phase 8.32, pre-stage/staged/postcommit).
 - Capability maturity **20.8% (provisional, rubric v1.0)** across 15 required v1 capabilities; not a release sign-off. Detailed formula, exclusions and grade evidence: [SCORING_METHOD.md](SCORING_METHOD.md).
 
 Only public display assets and curated aggregate data are committed here. Original master workbook, private evidence, macros and secrets are deliberately excluded.
@@ -17,6 +17,6 @@ The `data/snapshot.js` data is publicly readable by every visitor; do not put pr
 
 To publish a new milestone, independently verify workbook and Git evidence, generate and review a new sanitised snapshot offline, then commit only the approved public files. Never automate raw master-workbook publishing. Do not treat architecture percent as product-readiness percent.
 
-This repository is separate from the Nayeon engineering repository and does not implement Phase 8.32.
+This repository is separate from the Nayeon engineering repository. It reports the remotely verified Phase 8.32 seal but does not itself implement the assistant.
 
 The three headline gauges are independent: architecture closure (26.3%), evidence-scored capability maturity (20.8% provisional), and formal release acceptance (0/12 gates). No live master workbook or private credentials are served.
