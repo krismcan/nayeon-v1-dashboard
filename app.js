@@ -30,6 +30,16 @@ function renderTop(){
   $('phaseFraction').textContent=a.complete+' / '+a.total;
   $('architecturePct').textContent=percent(a.complete,a.total).toFixed(1)+'%';
   $('archProgress').style.width=percent(a.complete,a.total)+'%';
+  // Separate measures: completed architecture phases and independently accepted release gates.
+  const archPct=percent(a.complete,a.total),releasePct=percent(r.verified,r.total);
+  $('architectureRing').style.setProperty('--progress',archPct+'%');
+  $('architectureRing').setAttribute('aria-valuenow',archPct.toFixed(1));
+  $('architectureRingPct').textContent=archPct.toFixed(1)+'%';
+  $('architectureRingFraction').textContent=a.complete+' of '+a.total;
+  $('releaseRing').style.setProperty('--progress',releasePct+'%');
+  $('releaseRing').setAttribute('aria-valuenow',releasePct.toFixed(1));
+  $('releaseRingPct').textContent=releasePct.toFixed(0)+'%';
+  $('releaseRingFraction').textContent=r.verified+' of '+r.total;
   $('phaseComplete').textContent=a.complete;$('phaseActive').textContent=a.inProgress;$('phasePlanned').textContent=a.notStarted;
   $('gateFraction').textContent=r.verified+' / '+r.total;
   $('gateProgress').style.width=percent(r.verified,r.total)+'%';
