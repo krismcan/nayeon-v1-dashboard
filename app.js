@@ -25,6 +25,24 @@ function percent(a,b){return b===0?0:100*a/b;}
 const pillarById = Object.fromEntries(snapshot.pillars.map(x=>[x.id,x]));
 const phaseById = Object.fromEntries(snapshot.phases.map(x=>[x.id,x]));
 function fmtDate(iso){return new Intl.DateTimeFormat('en-GB',{day:'numeric',month:'long',year:'numeric',timeZone:'UTC'}).format(new Date(iso+'T00:00:00Z'));}
+function calculateMaturity(m) {
+  if(!m || m.modelVersion!=='1.0-provisional' || !Array.isArray(m.pillars) || m.pillars.length!==5)throw new Error('Capability maturity audit data unavailable');
+  const totalWeight=m.pillars.reduce((n,p)=>n+p.weightPercent,0);
+  if(totalWeight!==100)throw new Error('Capability weighting invalid');
+  const all=snapshot.capabilities.filter(c=>!m.excludedCapabilityIds.includes(c.id));
+  if(all.length!==15 || Object.keys(m.evaluations).length!==15)throw new Error('Maturity capability population invalid');
+  const scores=m.pillars.map(p=>{
+    const cap=all.filter(c=>c.pillar===p.pillarId);
+    const earned=cap.reduce((sum,c)=>{
+      const score=m.evaluations[c.id]?.level;
+      if(!Number.isInteger(score)||score<0||score>4)throw new Error('Invalid capability score '+c.id);
+      return sum+score;
+    },0);
+    if(!cap.length)throw new Error('Empty capability pillar '+p.pillarId);
+    return 100*earned/(4*cap.length)*p.weightPercent/100;
+  });
+  return {percent:scores.reduce((sum,n)=>sum+n,0)};
+}
 function renderTop(){
   const a=snapshot.architecture;const r=snapshot.release;
   $('phaseFraction').textContent=a.complete+' / '+a.total;
@@ -40,6 +58,10 @@ function renderTop(){
   $('releaseRing').setAttribute('aria-valuenow',releasePct.toFixed(1));
   $('releaseRingPct').textContent=releasePct.toFixed(0)+'%';
   $('releaseRingFraction').textContent=r.verified+' of '+r.total;
+  const m=calculateMaturity(snapshot.capabilityMaturity);
+  $('maturityRing').style.setProperty('--progress',m.percent+'%');
+  $('maturityRing').setAttribute('aria-valuenow',m.percent.toFixed(1));
+  $('maturityRingPct').textContent=m.percent.toFixed(1)+'%';
   $('phaseComplete').textContent=a.complete;$('phaseActive').textContent=a.inProgress;$('phasePlanned').textContent=a.notStarted;
   $('gateFraction').textContent=r.verified+' / '+r.total;
   $('gateProgress').style.width=percent(r.verified,r.total)+'%';
@@ -109,7 +131,9 @@ function renderGates(){
 }
 function openDialog(id){const d=$(id);if(d && typeof d.showModal==='function'){d.showModal();}else alert('This browser does not support interactive detail dialogs.');}
 function showCapability(c){if(!c)return;const d=evidenceDetail(c),p=pillarById[c.pillar];
- $('detailDialogBody').innerHTML=`<p class="eyebrow tiny">CAPABILITY EVIDENCE · ${safe(p.name)}</p><h2>${safe(c.name)}</h2><span class="detail-evidence">${safe(d.name.toUpperCase())}</span><p>${safe(c.detail)}</p><div class="detail-meta"><div><strong>Master source:</strong> ${safe(c.source)}</div><div><strong>Relevant architecture phases:</strong> ${safe(c.relatedPhases)}</div><div><strong>Interpretation:</strong> No readiness percentage is asserted for this capability.</div></div>`;
+ const ev=snapshot.capabilityMaturity.evaluations[c.id];
+ const maturity=ev?`<div><strong>Provisional maturity:</strong> ${ev.level}/4 · ${safe(snapshot.capabilityMaturity.levelDefinitions[ev.level].label)}</div><div><strong>Supporting evidence:</strong> ${safe(ev.evidence)}</div><div><strong>Not yet evidenced:</strong> ${safe(ev.limitation)}</div><div><strong>Workbook trace:</strong> ${safe(ev.workbookReferences)}</div>`:'<div><strong>Maturity:</strong> Excluded from required v1 (optional future capability).</div>';
+ $('detailDialogBody').innerHTML=`<p class="eyebrow tiny">CAPABILITY EVIDENCE · ${safe(p.name)}</p><h2>${safe(c.name)}</h2><span class="detail-evidence">${safe(d.name.toUpperCase())}</span><p>${safe(c.detail)}</p><div class="detail-meta">${maturity}<div><strong>Formal architecture phases:</strong> ${safe(c.relatedPhases)}</div><div><strong>Note:</strong> The score is bounded evidence maturity, not accepted release readiness.</div></div>`;
  openDialog('detailDialog');
 }
 function showPhase(p){if(!p)return;
@@ -118,14 +142,14 @@ function showPhase(p){if(!p)return;
 }
 function showMethod(){
  const m=snapshot.scoring;
- $('methodBody').innerHTML=`<p>Published figures come from a controlled, sanitised snapshot of the private 16-sheet master workbook. The original workbook is not made available to visitors.</p><div class="method-section"><h3>Architecture completion · ${snapshot.architecture.complete}/${snapshot.architecture.total}</h3><p>${safe(m.architecture)}</p><p>Phase population: 0–18. Five complete, five in progress, nine not started. In-progress phases receive <strong>zero</strong> partial credit.</p></div><div class="method-section"><h3>Release acceptance · ${snapshot.release.verified}/${snapshot.release.total}</h3><p>${safe(m.release)} No end-user acceptance gate has passed yet.</p></div><div class="method-section"><h3>Capability evidence</h3><p>${safe(m.capability)} The 16 classifications are shown as scoped foundation, not started or optional future. They are not numeric readiness scores.</p></div><div class="method-section"><h3>Five-pillar mapping</h3><p>${safe(m.pillars)} The pillar closure percentages reflect only the fraction of formally complete phases mapped to that pillar.</p></div><div class="method-section"><h3>Engineering quality</h3><p>The latest authoritative Windows regression is ${Number(snapshot.tests.passed).toLocaleString('en-GB')} / ${Number(snapshot.tests.total).toLocaleString('en-GB')} passing. Independent review and fresh-clone verification are milestone evidence, not product release acceptance.</p></div><div class="method-section"><h3>Publication boundary</h3><p>${safe(snapshot.disclosure)}</p><p>Snapshot date: ${safe(snapshot.snapshotDate)} · Latest closed milestone: ${safe(snapshot.latestMilestone)} · Source identity stays private.</p></div>`;
+ $('methodBody').innerHTML=`<p>Published figures come from a controlled, sanitised snapshot of the private 16-sheet master workbook. The original workbook is not made available to visitors.</p><div class="method-section"><h3>Architecture completion · ${snapshot.architecture.complete}/${snapshot.architecture.total}</h3><p>${safe(m.architecture)}</p><p>Phase population: 0–18. Five complete, five in progress, nine not started. In-progress phases receive <strong>zero</strong> partial credit.</p></div><div class="method-section"><h3>Release acceptance · ${snapshot.release.verified}/${snapshot.release.total}</h3><p>${safe(m.release)} No end-user acceptance gate has passed yet.</p></div><div class="method-section"><h3>Capability maturity · ${calculateMaturity(snapshot.capabilityMaturity).percent.toFixed(1)}% (provisional)</h3><p>${safe(m.capability)} Required v1: 15 capabilities; optional managed-commercial backend is excluded. The five development pillars each weigh 20%; included capabilities within a pillar have equal weight.</p><p><strong>Scoring scale:</strong> ${snapshot.capabilityMaturity.levelDefinitions.map(v=>`${v.level}: ${safe(v.label)}`).join(' · ')}</p><p><strong>Formula:</strong> Mean over five pillars of [sum of included capability levels / (4 × included capability count)] × 100.</p><p>${safe(snapshot.capabilityMaturity.warnings[0])}</p>${snapshot.capabilityMaturity.pillars.map(p=>`<p>${safe(p.pillarName)}: ${p.percent.toFixed(1)}% (${p.earned}/${p.maximum} points)</p>`).join('')}<p><a href="SCORING_METHOD.md" target="_blank" rel="noopener noreferrer" class="panel-link">Read complete public assessment & evidence table ↗</a></p></div><div class="method-section"><h3>Five-pillar mapping</h3><p>${safe(m.pillars)} The pillar closure percentages reflect only the fraction of formally complete phases mapped to that pillar.</p></div><div class="method-section"><h3>Engineering quality</h3><p>The latest authoritative Windows regression is ${Number(snapshot.tests.passed).toLocaleString('en-GB')} / ${Number(snapshot.tests.total).toLocaleString('en-GB')} passing. Independent review and fresh-clone verification are milestone evidence, not product release acceptance.</p></div><div class="method-section"><h3>Publication boundary</h3><p>${safe(snapshot.disclosure)}</p><p>Snapshot date: ${safe(snapshot.snapshotDate)} · Latest closed milestone: ${safe(snapshot.latestMilestone)} · Source identity stays private.</p></div>`;
  openDialog('methodDialog');
 }
 renderTop();renderEvidence();renderCapabilityFilters();renderCapabilityList();renderPillars();renderPhases();renderTimeline();renderHistory();renderGates();
 document.querySelectorAll('[data-icon]').forEach(node=>{node.innerHTML=icon(node.dataset.icon)});
 $('phaseSearch').addEventListener('input',e=>{phaseSearch=e.target.value.toLowerCase().trim();renderPhases();});
 $('phaseFilter').addEventListener('change',e=>{statusFilter=e.target.value;renderPhases();});
-$('methodButton').addEventListener('click',showMethod);$('footerMethod').addEventListener('click',showMethod);
+$('methodButton').addEventListener('click',showMethod);$('footerMethod').addEventListener('click',showMethod);$('maturityMethodButton').addEventListener('click',showMethod);
 const navLinks=[...document.querySelectorAll('.nav a')];
 navLinks.forEach(a=>a.addEventListener('click',()=>{navLinks.forEach(n=>n.classList.remove('active'));a.classList.add('active');}));
 })();

@@ -7,7 +7,7 @@
 .history-heading{display:flex;justify-content:space-between;align-items:center;gap:15px;margin:28px 0 12px}.history-heading h3{font-size:14px;margin:0 0 3px}.history-heading p{font-size:10px;margin:0;color:#91acca}.history-heading>span{font:800 9px Manrope;letter-spacing:.9px;color:#668fb2}.history-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.history-item{background:#0a2038;border:1px solid #244b70;padding:14px;border-radius:10px}.history-top{display:flex;justify-content:space-between;align-items:center;gap:7px}.history-top strong{font:800 11px Manrope}.history-top span{font-size:9px;color:#6e98bc}.history-amount{font:800 22px Manrope;color:#5de5c6;margin-top:11px}.history-amount span{font:600 9px DM Sans;color:#a3bddd}.history-track{height:7px;background:#27405b;border-radius:7px;overflow:hidden;margin:8px 0 11px}.history-track span{display:block;height:100%;background:linear-gradient(90deg,#3699f3,#40e9bc);border-radius:7px}.history-item a{font-size:10px;color:#64c8f7}.history-item a:hover{text-decoration:underline}@media(max-width:610px){.history-grid{grid-template-columns:1fr}.history-amount{font-size:21px}}
 
 /* Audited, distinct architecture and release gate progress. Ring percentages originate in the snapshot. */
-.progress-overview{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:0 0 17px}
+.progress-overview{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:0 0 17px}
 .progress-spotlight{display:flex;align-items:center;gap:26px;padding:26px 24px;min-height:254px}
 .architecture-spotlight{border-color:#247498}.readiness-spotlight{border-color:#704166}
 .progress-ring{--progress:0%;--ring-color:var(--cyan);width:clamp(150px,14vw,199px);height:clamp(150px,14vw,199px);aspect-ratio:1;flex:0 0 auto;border-radius:50%;display:grid;place-items:center;position:relative;background:conic-gradient(from -90deg,var(--ring-color) 0 var(--progress),#213b57 var(--progress) 100%);box-shadow:0 0 26px #23c9f029}
@@ -31,3 +31,11 @@
 @media(max-width:880px){.progress-overview{grid-template-columns:1fr}.progress-ring{width:174px;height:174px}}
 @media(max-width:610px){.progress-spotlight{padding:17px;min-height:0;gap:15px}.progress-ring{width:clamp(108px,30vw,142px);height:clamp(108px,30vw,142px)}.progress-ring:before{inset:10px}.progress-ring-content strong{font-size:29px;letter-spacing:-1px}.progress-ring-content span{font-size:8px}.progress-spotlight-info h2{font-size:16px}.progress-spotlight-info>p:not(.eyebrow){font-size:11px}.progress-spotlight-stat{margin:7px 0 5px}.progress-spotlight-stat strong{font-size:17px}.progress-spotlight-info .progress-spotlight-footnote{font-size:9px!important}.donut-wrap{width:clamp(100px,30vw,140px);flex-basis:clamp(100px,30vw,140px)}.evidence-donut{width:100%;height:100%;aspect-ratio:1}.cap-kpi-inner{gap:12px}.legend.vertical{gap:10px}.legend>div{font-size:10px}.legend strong{font-size:15px}}
 @media(max-width:370px){.progress-spotlight{flex-direction:column;text-align:center}.progress-spotlight-info .eyebrow{justify-content:center}.progress-spotlight-stat{justify-content:center}.cap-kpi-inner{gap:8px}.donut-wrap{width:94px;flex-basis:94px}.legend>div{font-size:9px}}
+
+/* Capability maturity: provisional evidence-scored, distinct from release acceptance. */
+.maturity-spotlight{border-color:#417b87}
+.maturity-ring{--ring-color:#42e0c7;--progress:20.8%;box-shadow:0 0 26px #23efc331}
+.maturity-method-link{border:0;background:none;color:#6be0d4;text-align:left;padding:0;cursor:pointer;font:800 11px Manrope,system-ui,sans-serif}
+.maturity-method-link:hover{text-decoration:underline}
+@media(min-width:1251px){.progress-ring{width:clamp(130px,10.2vw,158px);height:clamp(130px,10.2vw,158px)}.progress-spotlight{gap:17px;padding:19px 18px}.progress-spotlight-info h2{font-size:clamp(16px,1.35vw,21px)}}
+@media(min-width:881px) and (max-width:1250px){.maturity-spotlight{grid-column:2}.readiness-spotlight{grid-column:1;grid-row:2}}
