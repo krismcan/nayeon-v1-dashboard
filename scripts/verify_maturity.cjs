@@ -1,6 +1,7 @@
 // Reproducible public data integrity check; Node.js only, no dependencies.
-const fs=require('node:fs');const assert=require('node:assert/strict');
-const s=JSON.parse(fs.readFileSync(new URL('../data/snapshot.json','file://'+__filename).pathname,'utf8'));
+const fs=require('node:fs');const assert=require('node:assert/strict');const path=require('node:path');
+const getFile=(relative)=>fs.readFileSync(path.resolve(__dirname,relative),'utf8');
+const s=JSON.parse(getFile('../data/snapshot.json'));
 const m=s.capabilityMaturity;
 assert.equal(m.modelVersion,'1.0-provisional');
 assert.equal(s.architecture.complete,5);assert.equal(s.architecture.total,19);
@@ -22,8 +23,8 @@ for(const p of m.pillars){
 }
 assert.equal(Number(total.toFixed(1)),m.computedPercent);
 assert.equal(Number(total.toFixed(1)),20.8);
-const js=fs.readFileSync(new URL('../data/snapshot.js','file://'+__filename).pathname,'utf8');
+const js=getFile('../data/snapshot.js');
 assert.equal(JSON.stringify(JSON.parse(js.replace(/^window\.NAYEON_SNAPSHOT\s*=\s*/, '').replace(/;\s*$/, ''))),JSON.stringify(s));
-const page=fs.readFileSync(new URL('../index.html','file://'+__filename).pathname,'utf8');
+const page=getFile('../index.html');
 for(const id of ['architectureRing','maturityRing','releaseRing','maturityMethodButton'])assert(page.includes('id="'+id+'"'));
 console.log('PASS: 15 graded capabilities, 5 pillars, 20.8% model, 5/19 architecture, 0/12 gates');
