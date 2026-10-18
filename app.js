@@ -65,7 +65,13 @@ function renderTop(){
   $('phaseComplete').textContent=a.complete;$('phaseActive').textContent=a.inProgress;$('phasePlanned').textContent=a.notStarted;
   $('gateFraction').textContent=r.verified+' / '+r.total;
   $('gateProgress').style.width=percent(r.verified,r.total)+'%';
-  $('milestoneValue').textContent=snapshot.latestMilestone;
+  const latestClosed = [...snapshot.milestones].filter(x=>x.status==='CLOSED').at(-1);
+  if (!latestClosed || latestClosed.name!==snapshot.latestMilestone) {
+    throw new Error('Latest closed milestone is inconsistent with verified history');
+  }
+  $('milestoneValue').textContent=latestClosed.name;
+  $('milestoneDescription').textContent=latestClosed.summary || latestClosed.detail;
+  $('milestoneDate').textContent=latestClosed.date.toUpperCase();
   $('testPassed').textContent=snapshot.tests.passed.toLocaleString('en-GB');$('testTotal').textContent=snapshot.tests.total.toLocaleString('en-GB');
   $('snapshotLabel').textContent=snapshot.snapshotLabel;$('snapshotDate').textContent=fmtDate(snapshot.snapshotDate);
   $('footerDate').textContent='Data snapshot · '+fmtDate(snapshot.snapshotDate);
