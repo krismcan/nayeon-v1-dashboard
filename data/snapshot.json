@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "snapshotDate": "2026-10-17",
+  "snapshotDate": "2026-10-18",
   "snapshotLabel": "Phase 8.32 verified GitHub engineering checkpoint",
-  "sourceDescription": "Formal overall phase/release counts from the existing private 16-sheet master workbook (unchanged); Phase 8.32 milestone and regression evidence from independently verified GitHub seal. Private workbook binary update pending.",
+  "sourceDescription": "Formal architecture and release counts from the original private 16-sheet Nayeon v1 master workbook, updated in place on 18 Oct 2026 and verified by exact SHA256 download readback. Phase 8.32 milestone, commit/tag and 2,617-test regression evidence verified against GitHub.",
   "scoring": {
     "architecture": "Strict completed architecture phases / all v1 phases. No partial credit.",
     "release": "Verified complete end-user acceptance gates / 12.",
@@ -680,7 +680,7 @@
       "Desktop UI has a bounded Phases 8.30–8.32 offline-workspace exception despite formal Phase 15 NOT STARTED; that phase's release exit remains open.",
       "No partial credit for design-only, unverified or optional future commercial work."
     ],
-    "evidenceSource": "Formal architecture/release status from existing private 16-sheet master workbook; verified Git seals through Phase 8.32 (the private workbook binary has not yet been synchronised).",
+    "evidenceSource": "Formal architecture/release status from the same-ID private 16-sheet master workbook, updated and SHA256-verified 18 Oct 2026; GitHub milestone seals independently verified through Phase 8.32.",
     "latestEngineeringCommit": "03f247d8627bf1c51105f73b9de5c6bbdf389cf9"
   }
 }
