@@ -486,7 +486,8 @@
       "status": "CLOSED",
       "detail": "Bounded creator-thread Tk 150 ms one-shot fake offline completion, exact request/timer ownership and safe cancellation. Independent SOURCE_GO, TEST_DIFF_GO, WHITESPACE_GO and STAGED_GO; 16-file exact-source scope; three 2,683/2,683 native Windows full regressions; commit and annotated tag nayeon-v1-phase-8-33-offline-delayed-completion-01 remotely verified. No live model/provider, autonomous action or consumer release claim.",
       "regression": 2683,
-      "commit": "1a972d1d292597239c938d53437218c536b5bf3f"
+      "commit": "1a972d1d292597239c938d53437218c536b5bf3f",
+      "summary": "Offline delayed completion · fake-only status and safe cancellation"
     }
   ],
   "disclosure": "Publicly approved summary of project status only. Original workbook, internal tests, credential information and protected engineering evidence are excluded.",
@@ -685,10 +686,10 @@
       "Provisional, analyst-defined measurement; the rubric and judgments are inspectable but have not been signed off as formal independent product assurance.",
       "A level 2 rating describes bounded evidence, not 50% of a capability's total engineering effort or user-facing features.",
       "The 0/12 release-gates count is a separate strict measure. No capability has a level 3 or 4 rating in this snapshot.",
-      "Desktop UI has a bounded Phases 8.30–8.32 offline-workspace exception despite formal Phase 15 NOT STARTED; that phase's release exit remains open.",
+      "Desktop UI has a bounded Phases 8.30–8.33 bounded offline-workspace exception despite formal Phase 15 NOT STARTED; that phase's release exit remains open.",
       "No partial credit for design-only, unverified or optional future commercial work."
     ],
-    "evidenceSource": "Formal architecture/release status from the same-ID private 16-sheet master workbook, updated and SHA256-verified 18 Oct 2026; GitHub milestone seals independently verified through Phase 8.32.",
-    "latestEngineeringCommit": "03f247d8627bf1c51105f73b9de5c6bbdf389cf9"
+    "evidenceSource": "Formal architecture/release counts from the same-ID private 16-sheet master workbook (updated and SHA-256 verified 18 Oct 2026); GitHub engineering milestone seals independently verified through Phase 8.33.",
+    "latestEngineeringCommit": "1a972d1d292597239c938d53437218c536b5bf3f"
   }
 }
