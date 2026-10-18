@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
   "snapshotDate": "2026-10-18",
-  "snapshotLabel": "Phase 8.32 verified GitHub engineering checkpoint",
-  "sourceDescription": "Formal architecture and release counts from the original private 16-sheet Nayeon v1 master workbook, updated in place on 18 Oct 2026 and verified by exact SHA256 download readback. Phase 8.32 milestone, commit/tag and 2,617-test regression evidence verified against GitHub.",
+  "snapshotLabel": "Phase 8.33 verified GitHub engineering checkpoint",
+  "sourceDescription": "Overall architecture and release counts from the original private 16-sheet Nayeon v1 master workbook (same Google Drive file ID, updated in place on 18 Oct 2026 and verified by exact SHA-256 download readback). Phase 8.33 engineering commit/annotated tag and three complete 2,683-test native Windows regressions verified; not end-user release acceptance.",
   "scoring": {
     "architecture": "Strict completed architecture phases / all v1 phases. No partial credit.",
     "release": "Verified complete end-user acceptance gates / 12.",
@@ -20,22 +20,22 @@
     "verified": 0
   },
   "tests": {
-    "passed": 2617,
-    "total": 2617,
-    "scope": "Authoritative Windows full regression, Phase 8.32 pre-stage, staged and postcommit; 2,617 passed each",
+    "passed": 2683,
+    "total": 2683,
+    "scope": "Authoritative Windows full regressions for Phase 8.33 pre-stage, staged and postcommit: 2,683/2,683 passed each, with zero Tcl warnings",
     "freshClone": false
   },
   "security": {
-    "review": "Independent GPT-6.1 Sol High full-source and staged-delta review completed",
-    "result": "GO for bounded Phase 8.32 engineering scope; not consumer-release acceptance"
+    "review": "Independent GPT-6.1 Sol High full-source, test-diff, whitespace and staged-delta reviews completed",
+    "result": "GO for bounded Phase 8.33 engineering scope and exact 16-file integrity; not consumer-release acceptance"
   },
   "repository": {
     "label": "krismcan/Mark-LV",
     "branch": "nayeon-v1",
-    "head": "03f247d8627bf1c51105f73b9de5c6bbdf389cf9",
+    "head": "1a972d1d292597239c938d53437218c536b5bf3f",
     "url": "https://github.com/krismcan/Mark-LV/tree/nayeon-v1"
   },
-  "latestMilestone": "Phase 8.32",
+  "latestMilestone": "Phase 8.33",
   "phases": [
     {
       "id": 0,
@@ -479,6 +479,14 @@
       "detail": "Offline reset lifecycle assurance, user-accepted lazy expiry, stale-review ownership and thread-first callback checks. GitHub commit/tag and three full native regressions verified; no live model or consumer release claim.",
       "regression": 2617,
       "commit": "03f247d8627bf1c51105f73b9de5c6bbdf389cf9"
+    },
+    {
+      "name": "Phase 8.33",
+      "date": "18 Oct 2026",
+      "status": "CLOSED",
+      "detail": "Bounded creator-thread Tk 150 ms one-shot fake offline completion, exact request/timer ownership and safe cancellation. Independent SOURCE_GO, TEST_DIFF_GO, WHITESPACE_GO and STAGED_GO; 16-file exact-source scope; three 2,683/2,683 native Windows full regressions; commit and annotated tag nayeon-v1-phase-8-33-offline-delayed-completion-01 remotely verified. No live model/provider, autonomous action or consumer release claim.",
+      "regression": 2683,
+      "commit": "1a972d1d292597239c938d53437218c536b5bf3f"
     }
   ],
   "disclosure": "Publicly approved summary of project status only. Original workbook, internal tests, credential information and protected engineering evidence are excluded.",
