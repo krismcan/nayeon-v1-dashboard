@@ -72,6 +72,17 @@ function renderTop(){
   $('milestoneValue').textContent=latestClosed.name;
   $('milestoneDescription').textContent=latestClosed.summary || latestClosed.detail;
   $('milestoneDate').textContent=latestClosed.date.toUpperCase();
+  // Governance assessments do not count as sealed product milestones.
+  const workflow=snapshot.governance;
+  if (!workflow || workflow.latestAssessment!=='Phase 8.35' ||
+      workflow.lastProductMilestone!==snapshot.latestMilestone ||
+      workflow.status!=='CLOSED — GOVERNANCE ONLY') {
+    throw new Error('Workflow assessment is inconsistent with product release truth');
+  }
+  $('workflowPhase').textContent=workflow.latestAssessment;
+  $('workflowStatus').textContent=workflow.status;
+  $('workflowSummary').textContent=workflow.summary;
+  $('workflowReportLink').href=workflow.reportPath;
   $('testPassed').textContent=snapshot.tests.passed.toLocaleString('en-GB');$('testTotal').textContent=snapshot.tests.total.toLocaleString('en-GB');
   $('snapshotLabel').textContent=snapshot.snapshotLabel;$('snapshotDate').textContent=fmtDate(snapshot.snapshotDate);
   $('footerDate').textContent='Data snapshot · '+fmtDate(snapshot.snapshotDate);

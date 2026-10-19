@@ -1,13 +1,14 @@
 # Phase 8.35 — Engineering Workflow Assessment
 
 **Assessment date:** 19 October 2026  
+**Original workbook reconciliation:** completed in place and verified on 19 October 2026  
 **Track:** Process and governance; **not a production Nayeon software release**.  
 **Disposition:** Workflow assessment complete for decision-making; P0 read-only tools validated locally. The Git batch-transport implementation is **HOLD** and excluded from approved production scope.
 
 ## Verified baseline
 
 - Product repository `krismcan/Mark-LV`, branch `nayeon-v1`, unchanged Phase 8.34 release commit `b0490cd9e72104a74a32dc5315cbc55bc4034676`; immutable annotated tag `nayeon-v1-phase-8-34-fake-reply-lifecycle-01`.
-- Original workbook remains the private 16-sheet macro-enabled file. This **public document does not claim to have modified it**.
+- Original same-ID private 16-sheet macro-enabled workbook was **updated in place on 19 October 2026** with Phase 8.35 governance records in three worksheets. Drive metadata and downloaded workbook SHA-256 matched the staged update; no replacement Drive file was created. Workbook contents and private file identifiers remain unpublished.
 - Formal architecture completion **5/19**. End-user release acceptance **0/12**. Provisional maturity **20.8%**.
 - Three authoritative Phase 8.34 full native Windows regressions each passed **2,805/2,805 tests**: 3,993.418, 4,239.088 and 4,274.073 seconds, respectively. Aggregate duration **12,506.579 seconds / ~208.44 minutes**. No change to those release gates is approved.
 

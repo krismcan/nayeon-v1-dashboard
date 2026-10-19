@@ -3,7 +3,7 @@
 Public, **read-only** interactive dashboard summarising a sanitised **19 October 2026** snapshot from the original private Nayeon v1 architecture/progress workbook.
 
 - **Last product milestone:** Phase 8.34 — remotely verified, fake-only reply lifecycle.
-- **Engineering workflow assessment:** Phase 8.35 assessment published on 19 October 2026; this is not an additional product capability release. [Read its decisions and unresolved gates](docs/phase-8-35-workflow-assessment.md).
+- **Engineering workflow assessment:** Phase 8.35 documented, published and reconciled to the original same-ID workbook on 19 October 2026; this is not an additional product capability release. [Read its decisions and unresolved gates](docs/phase-8-35-workflow-assessment.md).
 - **Architecture:** 5/19 phases closed (26.3%).
 - **Release acceptance:** 0/12 gates verified.
 - **Authoritative product regression:** 2,805/2,805 passing in **each** of the Phase 8.34 pre-stage, staged and postcommit Windows runs.

@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
   "snapshotDate": "2026-10-19",
-  "snapshotLabel": "Phase 8.34 remotely verified fake-only reply lifecycle",
-  "sourceDescription": "Formal overall architecture and release counts are sourced from the ORIGINAL same-ID private 16-sheet Nayeon v1 master workbook, updated in place on 19 Oct 2026 and verified by exact readback. Phase 8.34 fake-only engineering commit/annotated tag, independent staged GO and three complete 2,805-test authoritative Windows regressions were verified. No live AI, BYOK consumer release, or end-user acceptance.",
+  "snapshotLabel": "Phase 8.35 workflow assessment closed · Phase 8.34 product release",
+  "sourceDescription": "Formal architecture, capability and release metrics come from the ORIGINAL same-ID private 16-sheet Nayeon v1 master workbook, updated in place for Phase 8.35 governance on 19 October 2026 and verified by exact readback. The latest engineering PRODUCT release remains Phase 8.34, independently sealed and backed by three complete 2,805-test native Windows regressions. Phase 8.35 adds no consumer product release, no accepted end-user gate, and no live AI provider.",
   "scoring": {
     "architecture": "Strict completed architecture phases / all v1 phases. No partial credit.",
     "release": "Verified complete end-user acceptance gates / 12.",
@@ -700,5 +700,15 @@
     ],
     "evidenceSource": "Formal 19-phase architecture and 12 end-user gates from the same-ID private 16-sheet master workbook (updated and SHA-256 verified 19 Oct 2026); engineering GitHub seal evidence verified through Phase 8.34. Capability maturity NOT rescored for a fake-only feature.",
     "latestEngineeringCommit": "b0490cd9e72104a74a32dc5315cbc55bc4034676"
+  },
+  "governance": {
+    "latestAssessment": "Phase 8.35",
+    "status": "CLOSED — GOVERNANCE ONLY",
+    "date": "2026-10-19",
+    "summary": "Workflow assessment documented and synced to the original master workbook. Last product release: Phase 8.34. Git batch-performance integration remains on security-review HOLD.",
+    "lastProductMilestone": "Phase 8.34",
+    "originalWorkbook": "Same original private 16-sheet workbook updated in place; readback verified 19 Oct 2026.",
+    "batching": "HOLD — independent security review and product release gates outstanding",
+    "reportPath": "docs/phase-8-35-workflow-assessment.md"
   }
 }

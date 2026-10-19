@@ -39,3 +39,11 @@
 .maturity-method-link:hover{text-decoration:underline}
 @media(min-width:1251px){.progress-ring{width:clamp(130px,10.2vw,158px);height:clamp(130px,10.2vw,158px)}.progress-spotlight{gap:17px;padding:19px 18px}.progress-spotlight-info h2{font-size:clamp(16px,1.35vw,21px)}}
 @media(min-width:881px) and (max-width:1250px){.maturity-spotlight{grid-column:2}.readiness-spotlight{grid-column:1;grid-row:2}}
+
+/* Phase 8.35 governance is distinct from the product milestone KPI. */
+.workflow-note{margin-top:14px;display:flex;flex-wrap:wrap;align-items:center;gap:9px 16px;padding:12px 14px;max-width:850px;background:#0b1d37;border:1px solid #3a648b;border-radius:11px;font-size:11px;color:#bfd9f3}
+.workflow-note-title{display:flex;gap:9px;align-items:center;color:#e1efff}
+.workflow-note-title strong{font-size:13px;color:#8be6d6}
+.workflow-note-copy{flex:1 1 320px;line-height:1.55;color:#b7cbe5}
+.workflow-note a{color:#76c9ec;font-weight:750;text-decoration:underline;text-underline-offset:3px}
+.workflow-note a:focus-visible{outline:2px solid #b1e9ff;outline-offset:4px}
