@@ -136,7 +136,14 @@ function renderPhases(){
  document.querySelectorAll('[data-phase]').forEach(node=>node.addEventListener('click',()=>showPhase(phaseById[Number(node.dataset.phase)])));
 }
 function renderTimeline(){
- $('roadmapTimeline').innerHTML=snapshot.milestones.map(m=>`<div class="timeline-item ${m.status==='NOT STARTED'?'next':''}"><span class="timeline-dot">${m.status==='CLOSED'?'✓':'◯'}</span><h3>${safe(m.name)}</h3><p>${safe(m.detail)}</p><span class="timeline-date">${safe(m.date)}</span></div>`).join('');
+ const g=snapshot.governance;
+ if (!g || g.latestAssessment!=='Phase 8.35' || g.status!=='CLOSED — GOVERNANCE ONLY'
+     || g.lastProductMilestone!==snapshot.latestMilestone
+     || g.reportPath!=='docs/phase-8-35-workflow-assessment.md') {
+   throw new Error('Governance milestone not reconciled to product history');
+ }
+ const assessment=`<div class="timeline-item governance" data-milestone-kind="governance"><span class="timeline-dot" aria-hidden="true">✓</span><span class="timeline-kind">GOVERNANCE · COMPLETED</span><h3>${safe(g.latestAssessment)}</h3><p>Workflow assessment closed. The latest sealed PRODUCT release remains ${safe(g.lastProductMilestone)}. No new regression count or release gate.</p><span class="timeline-date">19 OCT 2026</span><a href="${safe(g.reportPath)}">Read the Phase 8.35 assessment ↗</a></div>`;
+ $('roadmapTimeline').innerHTML=snapshot.milestones.map(m=>`<div class="timeline-item ${m.status==='NOT STARTED'?'next':''}"><span class="timeline-dot">${m.status==='CLOSED'?'✓':'◯'}</span><h3>${safe(m.name)}</h3><p>${safe(m.detail)}</p><span class="timeline-date">${safe(m.date)}</span></div>`).join('')+assessment;
 }
 function renderHistory(){
  const closed=snapshot.milestones.filter(m=>m.status==='CLOSED'&&Number.isFinite(m.regression));

@@ -10,7 +10,7 @@
   <meta property="og:title" content="Nayeon v1 | Progress & Readiness" />
   <meta property="og:description" content="A transparent, read-only development dashboard built from verified architecture and release evidence." />
   <title>Nayeon v1 — Development Dashboard</title>
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles.css?v=phase-8-35-history-20261019" />
 </head>
 <body>
   <div class="backdrop" aria-hidden="true"></div>
@@ -107,10 +107,16 @@
           <a class="panel-link" href="#gates">Explore all 12 gates <span>↗</span></a>
         </article>
         <article class="panel kpi milestone-kpi">
-          <div class="panel-head"><span class="head-icon blue" data-icon="flag"></span><div><h2>Latest closed milestone</h2><p>Verified and remotely sealed</p></div></div>
+          <div class="panel-head"><span class="head-icon blue" data-icon="flag"></span><div><h2>Latest sealed product milestone</h2><p>Verified product release · governance tracked separately</p></div></div>
           <div class="milestone-number" id="milestoneValue">Phase 8.34</div>
           <p class="milestone-description" id="milestoneDescription">Fake-only reply worker and Tk lifecycle · no live AI</p>
           <div class="milestone-footer"><span class="verified">✓ VERIFIED CLOSE</span><span id="milestoneDate">19 OCT 2026</span></div>
+          <div class="milestone-governance" aria-label="Latest completed governance milestone">
+            <span class="milestone-governance-kicker">WORKFLOW ASSESSMENT · COMPLETED</span>
+            <div class="milestone-governance-title"><strong>Phase 8.35</strong><span>Governance milestone</span></div>
+            <p>Engineering workflow assessment closed on 19 Oct 2026. No product release or extra regression count.</p>
+            <a href="docs/phase-8-35-workflow-assessment.md">View Phase 8.35 assessment ↗</a>
+          </div>
         </article>
       </section>
 
@@ -149,7 +155,7 @@
       </section>
 
       <section id="roadmap" class="panel roadmap-section">
-        <div class="section-heading"><div><p class="eyebrow tiny">VERIFIED DEVELOPMENT HISTORY</p><h2>From foundations to v1</h2><p>Recent milestone closures and the next boundary — without implying a production launch.</p></div><span class="small-tag">SOURCE: VERIFIED MASTER RECORDS</span></div>
+        <div class="section-heading"><div><p class="eyebrow tiny">VERIFIED DEVELOPMENT HISTORY</p><h2>From foundations to v1</h2><p>Sealed product milestones and completed governance assessments — clearly distinguished.</p></div><span class="small-tag">SOURCE: VERIFIED MASTER RECORDS</span></div>
         <div class="timeline" id="roadmapTimeline"></div>
         <div class="roadmap-insights"><div><strong>5 of 9</strong><span>Foundation-phase exits closed (0–8)</span></div><div><strong>0 of 10</strong><span>User-facing / release-phase exits closed (9–18)</span></div><div><strong>0 of 12</strong><span>Full release gates independently verified</span></div></div>
         <div class="history-heading"><div><h3>Verified regression & Git history</h3><p>Passing suite counts by sealed milestone, not a product-readiness trend.</p></div><span>RECENT HISTORY</span></div>
@@ -167,6 +173,6 @@
   <dialog id="detailDialog" class="detail-dialog"><form method="dialog"><button class="close-dialog" aria-label="Close detail">✕</button></form><div id="detailDialogBody"></div></dialog>
   <dialog id="methodDialog" class="detail-dialog methodology-dialog"><form method="dialog"><button class="close-dialog" aria-label="Close methodology">✕</button></form><p class="eyebrow tiny">HOW WE MEASURE PROGRESS</p><h2>Transparent by design.</h2><div id="methodBody"></div></dialog>
   <script src="data/snapshot.js?v=phase-8-35-governance-20261019"></script>
-  <script src="app.js?v=phase-8-35-governance-20261019"></script>
+  <script src="app.js?v=phase-8-35-history-20261019"></script>
 </body>
 </html>

@@ -47,3 +47,18 @@
 .workflow-note-copy{flex:1 1 320px;line-height:1.55;color:#b7cbe5}
 .workflow-note a{color:#76c9ec;font-weight:750;text-decoration:underline;text-underline-offset:3px}
 .workflow-note a:focus-visible{outline:2px solid #b1e9ff;outline-offset:4px}
+
+/* Distinguish completed governance from a remotely sealed product milestone. */
+.milestone-governance{border-top:1px solid #2e597a;margin-top:18px;padding-top:15px;display:flex;flex-direction:column;gap:6px}
+.milestone-governance-kicker,.timeline-kind{font:800 9px Manrope,system-ui,sans-serif;letter-spacing:.8px;color:#7fd9cd}
+.milestone-governance-title{display:flex;flex-wrap:wrap;gap:6px 12px;align-items:baseline}
+.milestone-governance-title strong{font:800 20px Manrope,system-ui,sans-serif;color:#8be6d6}
+.milestone-governance-title span{font-size:10px;color:#bdcde0}
+.milestone-governance p{margin:0;font-size:10px;line-height:1.55;color:#a8c0de}
+.milestone-governance a,.timeline-item.governance a{font:750 10px Manrope,system-ui,sans-serif;color:#80d9e4;text-decoration:underline;text-underline-offset:3px}
+.timeline-item.governance{background:#0b283f;border:1px solid #357e86;border-radius:12px;padding:10px 12px 14px;box-shadow:0 0 14px #10a4a61a}
+.timeline-item.governance .timeline-dot{border-color:#7fd9cd;background:#124d56}
+.timeline-item.governance h3{font-size:16px;color:#b6f4e2;margin-top:5px}
+.timeline-item.governance p{margin-bottom:7px}
+.timeline-item.governance a{display:block;margin-top:10px;line-height:1.5}
+@media(max-width:600px){.milestone-governance-title strong{font-size:18px}.timeline-item.governance{margin-top:8px}}

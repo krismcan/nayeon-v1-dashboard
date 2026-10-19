@@ -24,3 +24,7 @@ For **product** milestones, retain exact scope/independent review, focused+affec
 For **governance-only assessments**, publish a separate decision record without increasing product milestones, test counts, architecture closure or release-gate completion. Phase 8.35's read-only investigation identified a potential performance improvement, but its persistent Git-blob batching implementation remains **HOLD pending independent security review and product release tests**. See the [assessment](docs/phase-8-35-workflow-assessment.md).
 
 The public numerical snapshot currently reports verified **Phase 8.34**, not a hypothetical Phase 8.35 product seal.
+
+## Phase 8.35 dashboard visibility
+
+Phase 8.35 is a **completed governance milestone**, displayed prominently in the milestone KPI and in the **development roadmap** after Phase 8.34. Its review record is linked in both places. It is deliberately **not** inserted into the product-release `milestones` data or the native-regression history chart, because its closure did not add production code, a product seal, a test run or an end-user release gate. The latest sealed product remains Phase 8.34; the formal architecture/release/maturity metrics remain unchanged.
