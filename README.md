@@ -1,22 +1,26 @@
 # Nayeon v1 — Public Development Dashboard
 
-Public, **read-only** interactive dashboard summarising a reviewed, sanitised 17 October 2026 snapshot of the privately maintained Nayeon v1 architecture progress workbook.
+Public, **read-only** interactive dashboard summarising a sanitised **19 October 2026** snapshot from the original private Nayeon v1 architecture/progress workbook.
 
-- Architecture: 5/19 phases closed (26.3%).
-- Release acceptance: 0/12 gates verified.
-- Authoritative regression: 2,617/2,617 passing (Phase 8.32, pre-stage/staged/postcommit).
-- Capability maturity **20.8% (provisional, rubric v1.0)** across 15 required v1 capabilities; not a release sign-off. Detailed formula, exclusions and grade evidence: [SCORING_METHOD.md](SCORING_METHOD.md).
+- **Last product milestone:** Phase 8.34 — remotely verified, fake-only reply lifecycle.
+- **Engineering workflow assessment:** Phase 8.35 assessment published on 19 October 2026; this is not an additional product capability release. [Read its decisions and unresolved gates](docs/phase-8-35-workflow-assessment.md).
+- **Architecture:** 5/19 phases closed (26.3%).
+- **Release acceptance:** 0/12 gates verified.
+- **Authoritative product regression:** 2,805/2,805 passing in **each** of the Phase 8.34 pre-stage, staged and postcommit Windows runs.
+- **Capability maturity:** **20.8% provisional** under scoring rubric v1.0 across 15 required v1 capabilities; not consumer-release sign-off. [Scoring method](SCORING_METHOD.md).
 
-Only public display assets and curated aggregate data are committed here. Original master workbook, private evidence, macros and secrets are deliberately excluded.
+Only public display assets and curated aggregate data are committed here. The original master workbook, private engineering evidence, original macro-enabled format, credentials and machine paths are deliberately excluded.
 
 ## GitHub Pages
 
-This repository serves a plain static site from the root of `main` through GitHub Pages. Pages must be configured by a repository administrator under **Settings > Pages > Build and deployment > Deploy from a branch > main > /(root)**. The site is public even though visitors cannot write to it.
+The repository serves a static site from the root of `main` through GitHub Pages. Public visitors have read-only access. The snapshot data served under `data/` is publicly readable; never place private data in it. The HTML Content-Security-Policy meta element is not a substitute for web-server response headers.
 
-The `data/snapshot.js` data is publicly readable by every visitor; do not put private information in it. `Content-Security-Policy` is in a meta element because GitHub Pages does not implement Cloudflare's `_headers` custom-response feature. It is not a substitute for host-supplied response headers.
+## Source of truth and publication order
 
-To publish a new milestone, independently verify workbook and Git evidence, generate and review a new sanitised snapshot offline, then commit only the approved public files. Never automate raw master-workbook publishing. Do not treat architecture percent as product-readiness percent.
+The private **original same-ID master workbook** is the formal planning/audit source. The separate product repository and its immutable annotated tags establish Git release truth. The public site only publishes a reviewed and sanitised snapshot after those sources have been reconciled.
 
-This repository is separate from the Nayeon engineering repository. It reports the remotely verified Phase 8.32 seal but does not itself implement the assistant.
+For **product** milestones, retain exact scope/independent review, focused+affected tests, and **all three full native Windows regression gates**: pre-stage, staged and postcommit. Commit/tag verification, GitHub synchronisation, original-workbook same-ID update and public snapshot reconciliation follow in that order. Fail closed on mismatches; never silently create a replacement master workbook.
 
-The three headline gauges are independent: architecture closure (26.3%), evidence-scored capability maturity (20.8% provisional), and formal release acceptance (0/12 gates). No live master workbook or private credentials are served.
+For **governance-only assessments**, publish a separate decision record without increasing product milestones, test counts, architecture closure or release-gate completion. Phase 8.35's read-only investigation identified a potential performance improvement, but its persistent Git-blob batching implementation remains **HOLD pending independent security review and product release tests**. See the [assessment](docs/phase-8-35-workflow-assessment.md).
+
+The public numerical snapshot currently reports verified **Phase 8.34**, not a hypothetical Phase 8.35 product seal.
