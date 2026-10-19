@@ -6,7 +6,7 @@ const m=s.capabilityMaturity;
 assert.equal(m.modelVersion,'1.0-provisional');
 assert.equal(s.architecture.complete,5);assert.equal(s.architecture.total,19);
 assert.equal(s.release.verified,0);assert.equal(s.release.total,12);
-assert.equal(s.tests.passed,2572);assert.equal(s.tests.total,2572);
+assert.equal(s.tests.passed,2805);assert.equal(s.tests.total,2805);
 assert.equal(s.capabilities.length,16);
 const required=s.capabilities.filter(c=>!m.excludedCapabilityIds.includes(c.id));
 assert.equal(required.length,15);assert.equal(Object.keys(m.evaluations).length,15);
