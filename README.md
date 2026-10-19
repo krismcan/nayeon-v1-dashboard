@@ -28,3 +28,15 @@ The public numerical snapshot currently reports verified **Phase 8.34**, not a h
 ## Phase 8.35 dashboard visibility
 
 Phase 8.35 is a **completed governance milestone**, displayed prominently in the milestone KPI and in the **development roadmap** after Phase 8.34. Its review record is linked in both places. It is deliberately **not** inserted into the product-release `milestones` data or the native-regression history chart, because its closure did not add production code, a product seal, a test run or an end-user release gate. The latest sealed product remains Phase 8.34; the formal architecture/release/maturity metrics remain unchanged.
+
+## October 2026 — foundation and compact-history dashboard display
+
+The *unchanged* private-workbook-derived snapshot includes the original formal
+phases 0–7: 0, 1, 5, 6, 7 COMPLETE and 2, 3, 4 IN PROGRESS. The Roadmap tab
+now shows those exact states in a compact clickable list, with links to the
+existing phase-detail dialog. The milestone timeline displays Phase 8.35
+(governance) and Phase 8.34 (sealed product) first; earlier Phase 8.29–8.33
+milestones and six historical regression/Git checkpoints expand on demand.
+All product and governance statuses, release counts, maturity figures and
+regression counts are unchanged. The dashboard uses locally available system
+fonts instead of attempting to render absent CSP-blocked webfonts.

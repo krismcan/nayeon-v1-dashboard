@@ -10,7 +10,7 @@
   <meta property="og:title" content="Nayeon v1 | Progress & Readiness" />
   <meta property="og:description" content="A transparent, read-only development dashboard built from verified architecture and release evidence." />
   <title>Nayeon v1 — Development Dashboard</title>
-  <link rel="stylesheet" href="styles.css?v=phase-8-35-history-20261019" />
+  <link rel="stylesheet" href="styles.css?v=foundation-list-20261019" />
 </head>
 <body>
   <div class="backdrop" aria-hidden="true"></div>
@@ -155,11 +155,27 @@
       </section>
 
       <section id="roadmap" class="panel roadmap-section">
-        <div class="section-heading"><div><p class="eyebrow tiny">VERIFIED DEVELOPMENT HISTORY</p><h2>From foundations to v1</h2><p>Sealed product milestones and completed governance assessments — clearly distinguished.</p></div><span class="small-tag">SOURCE: VERIFIED MASTER RECORDS</span></div>
-        <div class="timeline" id="roadmapTimeline"></div>
+        <div class="section-heading"><div><p class="eyebrow tiny">VERIFIED DEVELOPMENT HISTORY</p><h2>From foundations to v1</h2><p>Original completed foundations and verified delivery milestones, in a shorter, readable list.</p></div><span class="small-tag">SOURCE: VERIFIED MASTER RECORDS</span></div>
+        <div class="foundation-header">
+          <div><h3>Foundation phases 0–7</h3><p>Formal status from the existing master Build Plan. A closed foundation is not a complete consumer release.</p></div>
+          <span class="foundation-count" id="foundationSummary">5 complete · 3 in progress</span>
+        </div>
+        <div class="foundation-list" id="foundationList" aria-label="Original master phases 0 through 7"></div>
+        <div class="history-heading">
+          <div><h3>Recent development milestones</h3><p>Newest first · product releases and governance are labelled separately.</p></div>
+          <span>VERIFIED CHECKPOINTS</span>
+        </div>
+        <div class="timeline-history" id="roadmapTimeline" aria-label="Latest verified milestones"></div>
+        <details class="history-expander" id="olderMilestones">
+          <summary>Show earlier Phase 8 milestones (8.29–8.33)</summary>
+          <div class="timeline-history" id="olderTimeline" aria-label="Earlier verified milestones"></div>
+        </details>
         <div class="roadmap-insights"><div><strong>5 of 9</strong><span>Foundation-phase exits closed (0–8)</span></div><div><strong>0 of 10</strong><span>User-facing / release-phase exits closed (9–18)</span></div><div><strong>0 of 12</strong><span>Full release gates independently verified</span></div></div>
-        <div class="history-heading"><div><h3>Verified regression & Git history</h3><p>Passing suite counts by sealed milestone, not a product-readiness trend.</p></div><span>RECENT HISTORY</span></div>
-        <div class="history-grid" id="historyGrid"></div>
+        <details class="history-expander regression-details" id="regressionDetails">
+          <summary>Verified regression & Git history (6 sealed product checkpoints)</summary>
+          <p class="history-context">Passing suite counts and commit links; these do not indicate consumer-release readiness.</p>
+          <div class="history-grid" id="historyGrid"></div>
+        </details>
       </section>
 
       <section id="gates" class="panel gates-section">
@@ -173,6 +189,6 @@
   <dialog id="detailDialog" class="detail-dialog"><form method="dialog"><button class="close-dialog" aria-label="Close detail">✕</button></form><div id="detailDialogBody"></div></dialog>
   <dialog id="methodDialog" class="detail-dialog methodology-dialog"><form method="dialog"><button class="close-dialog" aria-label="Close methodology">✕</button></form><p class="eyebrow tiny">HOW WE MEASURE PROGRESS</p><h2>Transparent by design.</h2><div id="methodBody"></div></dialog>
   <script src="data/snapshot.js?v=phase-8-35-governance-20261019"></script>
-  <script src="app.js?v=phase-8-35-history-20261019"></script>
+  <script src="app.js?v=foundation-list-20261019"></script>
 </body>
 </html>

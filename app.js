@@ -135,20 +135,40 @@ function renderPhases(){
  $('phaseList').innerHTML=phases.map(p=>`<button class="phase-item" type="button" data-phase="${p.id}" aria-label="Phase ${p.id}: ${safe(p.name)}, ${safe(p.status)}"><span class="phase-number">${String(p.id).padStart(2,'0')}</span><span class="phase-text"><strong>${safe(p.name)}</strong><small>ARCHITECTURE PHASE ${p.id}</small></span><span class="mini-status ${getStatusClass(p.status)}">${safe(p.status)}</span></button>`).join('');
  document.querySelectorAll('[data-phase]').forEach(node=>node.addEventListener('click',()=>showPhase(phaseById[Number(node.dataset.phase)])));
 }
+function renderFoundation(){
+ const phases=snapshot.phases.filter(p=>Number.isInteger(p.id)&&p.id>=0&&p.id<=7).sort((a,b)=>a.id-b.id);
+ const completed=phases.filter(p=>p.status==='COMPLETE').map(p=>p.id);
+ const active=phases.filter(p=>p.status==='IN PROGRESS').map(p=>p.id);
+ if(phases.length!==8 || phases.some((p,i)=>p.id!==i) ||
+    completed.join(',')!=='0,1,5,6,7' || active.join(',')!=='2,3,4'){
+   throw new Error('Foundation statuses diverged from the verified master snapshot');
+ }
+ $('foundationSummary').textContent=completed.length+' complete · '+active.length+' in progress';
+ $('foundationList').innerHTML=phases.map(p=>`<button type="button" class="foundation-entry ${getStatusClass(p.status)}" data-foundation-phase="${p.id}" aria-label="Phase ${p.id}, ${safe(p.name)}, ${safe(p.status)}; view details"><span class="foundation-number">${p.id}</span><span class="foundation-name"><strong>${safe(p.name)}</strong><small>${safe(p.summary)}</small></span><span class="foundation-state ${getStatusClass(p.status)}">${p.status==='COMPLETE'?'✓ COMPLETE':'◷ IN PROGRESS'}</span></button>`).join('');
+ document.querySelectorAll('[data-foundation-phase]').forEach(button=>
+   button.addEventListener('click',()=>showPhase(phaseById[Number(button.dataset.foundationPhase)])));
+}
 function renderTimeline(){
  const g=snapshot.governance;
- if (!g || g.latestAssessment!=='Phase 8.35' || g.status!=='CLOSED — GOVERNANCE ONLY'
-     || g.lastProductMilestone!==snapshot.latestMilestone
-     || g.reportPath!=='docs/phase-8-35-workflow-assessment.md') {
-   throw new Error('Governance milestone not reconciled to product history');
+ const last=snapshot.milestones.at(-1);
+ if(!g||g.latestAssessment!=='Phase 8.35'||g.status!=='CLOSED — GOVERNANCE ONLY'||
+    g.lastProductMilestone!==snapshot.latestMilestone||
+    g.reportPath!=='docs/phase-8-35-workflow-assessment.md'||
+    !last||last.name!==snapshot.latestMilestone||last.status!=='CLOSED'){
+    throw new Error('Governance or product milestone mismatch');
  }
- const assessment=`<div class="timeline-item governance" data-milestone-kind="governance"><span class="timeline-dot" aria-hidden="true">✓</span><span class="timeline-kind">GOVERNANCE · COMPLETED</span><h3>${safe(g.latestAssessment)}</h3><p>Workflow assessment closed. The latest sealed PRODUCT release remains ${safe(g.lastProductMilestone)}. No new regression count or release gate.</p><span class="timeline-date">19 OCT 2026</span><a href="${safe(g.reportPath)}">Read the Phase 8.35 assessment ↗</a></div>`;
- $('roadmapTimeline').innerHTML=snapshot.milestones.map(m=>`<div class="timeline-item ${m.status==='NOT STARTED'?'next':''}"><span class="timeline-dot">${m.status==='CLOSED'?'✓':'◯'}</span><h3>${safe(m.name)}</h3><p>${safe(m.detail)}</p><span class="timeline-date">${safe(m.date)}</span></div>`).join('')+assessment;
+ const gov=`<div class="milestone-row governance" data-milestone-kind="governance"><span class="milestone-list-mark">✓</span><div class="milestone-row-main"><div class="milestone-row-title"><strong>${safe(g.latestAssessment)}</strong><span>GOVERNANCE · CLOSED</span></div><p>Engineering workflow assessment completed; does not represent a product release.</p></div><time class="milestone-row-date">19 OCT 2026</time><a href="${safe(g.reportPath)}">Assessment ↗</a></div>`;
+ const product=(m)=>`<div class="milestone-row" data-milestone-kind="product"><span class="milestone-list-mark">✓</span><div class="milestone-row-main"><div class="milestone-row-title"><strong>${safe(m.name)}</strong><span>PRODUCT · SEALED</span></div><p>${safe(m.summary||m.detail)}</p></div><time class="milestone-row-date">${safe(m.date).toUpperCase()}</time><a href="https://github.com/krismcan/Mark-LV/commit/${encodeURIComponent(m.commit)}" target="_blank" rel="noopener noreferrer">Commit ↗</a></div>`;
+ $('roadmapTimeline').innerHTML=gov+product(last);
+ $('olderTimeline').innerHTML=snapshot.milestones.slice(0,-1).reverse().map(product).join('');
 }
 function renderHistory(){
- const closed=snapshot.milestones.filter(m=>m.status==='CLOSED'&&Number.isFinite(m.regression));
- const max=Math.max(...closed.map(m=>m.regression),1);
- $('historyGrid').innerHTML=closed.map(m=>{const href='https://github.com/krismcan/Mark-LV/commit/'+encodeURIComponent(m.commit); return `<div class="history-item"><div class="history-top"><strong>${safe(m.name)}</strong><span>${safe(m.date)}</span></div><div class="history-amount">${m.regression.toLocaleString('en-GB')} <span>/ ${m.regression.toLocaleString('en-GB')} PASS</span></div><div class="history-track"><span style="width:${percent(m.regression,max)}%"></span></div><a href="${href}" target="_blank" rel="noopener noreferrer">Verified Git checkpoint · ${safe(m.commit.slice(0,8))} ↗</a></div>`;}).join('');
+ const closed=snapshot.milestones.filter(m=>m.status==='CLOSED'&&
+   Number.isSafeInteger(m.regression)&&m.regression>0&&typeof m.commit==='string');
+ $('historyGrid').innerHTML=closed.reverse().map(m=>{
+   const href='https://github.com/krismcan/Mark-LV/commit/'+encodeURIComponent(m.commit);
+   return `<div class="regression-row"><strong>${safe(m.name)}</strong><span class="regression-value">${m.regression.toLocaleString('en-GB')} / ${m.regression.toLocaleString('en-GB')} PASS</span><span class="regression-date">${safe(m.date)}</span><a href="${href}" target="_blank" rel="noopener noreferrer">Git ${safe(m.commit.slice(0,8))} ↗</a></div>`;
+ }).join('');
 }
 function renderGates(){
  $('gatesGrid').innerHTML=snapshot.gates.map(g=>`<div class="gate"><div class="gate-no">${String(g.id).padStart(2,'0')}</div><div><strong>${safe(g.name)}</strong><span>◯ ${safe(g.status)}</span></div></div>`).join('');
@@ -169,7 +189,7 @@ function showMethod(){
  $('methodBody').innerHTML=`<p>Published figures come from a controlled, sanitised snapshot of the private 16-sheet master workbook. The original workbook is not made available to visitors.</p><div class="method-section"><h3>Architecture completion · ${snapshot.architecture.complete}/${snapshot.architecture.total}</h3><p>${safe(m.architecture)}</p><p>Phase population: 0–18. Five complete, five in progress, nine not started. In-progress phases receive <strong>zero</strong> partial credit.</p></div><div class="method-section"><h3>Release acceptance · ${snapshot.release.verified}/${snapshot.release.total}</h3><p>${safe(m.release)} No end-user acceptance gate has passed yet.</p></div><div class="method-section"><h3>Capability maturity · ${calculateMaturity(snapshot.capabilityMaturity).percent.toFixed(1)}% (provisional)</h3><p>${safe(m.capability)} Required v1: 15 capabilities; optional managed-commercial backend is excluded. The five development pillars each weigh 20%; included capabilities within a pillar have equal weight.</p><p><strong>Scoring scale:</strong> ${snapshot.capabilityMaturity.levelDefinitions.map(v=>`${v.level}: ${safe(v.label)}`).join(' · ')}</p><p><strong>Formula:</strong> Mean over five pillars of [sum of included capability levels / (4 × included capability count)] × 100.</p><p>${safe(snapshot.capabilityMaturity.warnings[0])}</p>${snapshot.capabilityMaturity.pillars.map(p=>`<p>${safe(p.pillarName)}: ${p.percent.toFixed(1)}% (${p.earned}/${p.maximum} points)</p>`).join('')}<p><a href="SCORING_METHOD.md" target="_blank" rel="noopener noreferrer" class="panel-link">Read complete public assessment & evidence table ↗</a></p></div><div class="method-section"><h3>Five-pillar mapping</h3><p>${safe(m.pillars)} The pillar closure percentages reflect only the fraction of formally complete phases mapped to that pillar.</p></div><div class="method-section"><h3>Engineering quality</h3><p>The latest authoritative Windows regression is ${Number(snapshot.tests.passed).toLocaleString('en-GB')} / ${Number(snapshot.tests.total).toLocaleString('en-GB')} passing. Independent review and fresh-clone verification are milestone evidence, not product release acceptance.</p></div><div class="method-section"><h3>Publication boundary</h3><p>${safe(snapshot.disclosure)}</p><p>Snapshot date: ${safe(snapshot.snapshotDate)} · Latest closed milestone: ${safe(snapshot.latestMilestone)} · Source identity stays private.</p></div>`;
  openDialog('methodDialog');
 }
-renderTop();renderEvidence();renderCapabilityFilters();renderCapabilityList();renderPillars();renderPhases();renderTimeline();renderHistory();renderGates();
+renderTop();renderEvidence();renderCapabilityFilters();renderCapabilityList();renderPillars();renderPhases();renderFoundation();renderTimeline();renderHistory();renderGates();
 document.querySelectorAll('[data-icon]').forEach(node=>{node.innerHTML=icon(node.dataset.icon)});
 $('phaseSearch').addEventListener('input',e=>{phaseSearch=e.target.value.toLowerCase().trim();renderPhases();});
 $('phaseFilter').addEventListener('change',e=>{statusFilter=e.target.value;renderPhases();});
