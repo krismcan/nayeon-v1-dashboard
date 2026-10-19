@@ -15,7 +15,7 @@ assert.equal(s.governance.reportPath,'docs/phase-8-35-workflow-assessment.md');
 assert(!s.milestones.some(x=>x.name==='Phase 8.35'),
   'Governance assessment must not be counted as product milestone/regression');
 const app=getFile('../app.js');
-assert(app.includes('timeline-item governance'), 'Phase 8.35 must appear in roadmap history');
+assert(app.includes('milestone-row governance'), 'Phase 8.35 must appear in the compact roadmap history');
 assert(app.includes('data-milestone-kind="governance"'));
 assert.equal(s.capabilities.length,16);
 const required=s.capabilities.filter(c=>!m.excludedCapabilityIds.includes(c.id));
