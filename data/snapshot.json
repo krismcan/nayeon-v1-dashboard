@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "snapshotDate": "2026-10-19",
-  "snapshotLabel": "Phase 8.35 workflow assessment closed · Phase 8.34 product release",
-  "sourceDescription": "Formal architecture, capability and release metrics come from the ORIGINAL same-ID private 16-sheet Nayeon v1 master workbook, updated in place for Phase 8.35 governance on 19 October 2026 and verified by exact readback. The latest engineering PRODUCT release remains Phase 8.34, independently sealed and backed by three complete 2,805-test native Windows regressions. Phase 8.35 adds no consumer product release, no accepted end-user gate, and no live AI provider.",
+  "snapshotDate": "2026-10-21",
+  "snapshotLabel": "Phase 8.36 offline request review product release sealed · Phase 8.35 governance complete",
+  "sourceDescription": "Formal architecture, capability and release metrics are preserved from the ORIGINAL same-ID private 16-sheet Nayeon v1 master workbook, reconciled in place on 21 October 2026 with exact readback. Latest verified engineering product milestone: Phase 8.36 offline request review, exact 19-path GitHub commit and annotated tag, independently reviewed and backed by three 2,868/2,868 full native Windows regressions. Phase 8.35 remains governance-only. No live AI provider, end-user acceptance or installer claim.",
   "scoring": {
     "architecture": "Strict completed architecture phases / all v1 phases. No partial credit.",
     "release": "Verified complete end-user acceptance gates / 12.",
@@ -20,22 +20,22 @@
     "verified": 0
   },
   "tests": {
-    "passed": 2805,
-    "total": 2805,
-    "scope": "Authoritative Windows pre-stage, exact-stage and postcommit full regressions for Phase 8.34: each 2,805/2,805 PASS; zero Tcl warnings.",
+    "passed": 2868,
+    "total": 2868,
+    "scope": "Phase 8.36 authoritative native Windows pre-stage, exact staged and postcommit regressions: each 2,868/2,868 PASS, zero failures/errors after Tk owner-thread runner cleanup. These are engineering regressions, not installed-user acceptance.",
     "freshClone": false
   },
   "security": {
-    "review": "Independent GPT-6.1 Sol High design, source, reentrant Save/Reset/Tk lifetime, guard-manifest, and exact staged-delta reviews completed.",
-    "result": "GO within exact 20-path Phase 8.34 fake-only engineering scope; no unresolved HIGH/MEDIUM. Not consumer-release acceptance."
+    "review": "Independent Codex review of 19-path Phase 8.36 offline request review; follow-up stage-sensitive test and exact SHA-pin repair reviewed at ef5c496836, no major issues.",
+    "result": "GO within exact Phase 8.36 engineering scope. Historical Git seals and fail-closed runtime boundaries preserved; no end-user acceptance, live provider, network capability, or autonomous-action claim."
   },
   "repository": {
     "label": "krismcan/Mark-LV",
     "branch": "nayeon-v1",
-    "head": "b0490cd9e72104a74a32dc5315cbc55bc4034676",
+    "head": "a12565b9be070684e1d7d801ded4833d13121f94",
     "url": "https://github.com/krismcan/Mark-LV/tree/nayeon-v1"
   },
-  "latestMilestone": "Phase 8.34",
+  "latestMilestone": "Phase 8.36",
   "phases": [
     {
       "id": 0,
@@ -497,6 +497,15 @@
       "regression": 2805,
       "commit": "b0490cd9e72104a74a32dc5315cbc55bc4034676",
       "summary": "Fake-only reply worker & Tk lifecycle · no live AI"
+    },
+    {
+      "name": "Phase 8.36",
+      "date": "21 Oct 2026",
+      "status": "CLOSED",
+      "detail": "Offline Request Review engineering milestone: exact 19 SHA256-pinned paths, independent Codex review with no major issues, complete native Windows regressions pre-stage/staged/postcommit each 2,868/2,868 PASS with zero failures/errors. Owner-thread Tk GC test-runner correction, no weakened security checks; local one-child commit a12565b9be070684e1d7d801ded4833d13121f94 and annotated tag nayeon-v1-phase-8-36-offline-request-review-01 (object aca0de5a873cf41454fe1fa144d12f34d44418a4) remotely verified on GitHub. Existing private master XLSM updated in place, same Drive ID, readback byte-for-byte verified 21 Oct 2026. Not installed consumer release, no real provider or autonomous action.",
+      "regression": 2868,
+      "commit": "a12565b9be070684e1d7d801ded4833d13121f94",
+      "summary": "Offline request review · reviewed and GitHub sealed"
     }
   ],
   "disclosure": "Publicly approved summary of project status only. Original workbook, internal tests, credential information and protected engineering evidence are excluded.",
@@ -705,9 +714,9 @@
     "latestAssessment": "Phase 8.35",
     "status": "CLOSED — GOVERNANCE ONLY",
     "date": "2026-10-19",
-    "summary": "Workflow assessment documented and synced to the original master workbook. Last product release: Phase 8.34. Git batch-performance integration remains on security-review HOLD.",
-    "lastProductMilestone": "Phase 8.34",
-    "originalWorkbook": "Same original private 16-sheet workbook updated in place; readback verified 19 Oct 2026.",
+    "summary": "Phase 8.35 workflow governance assessment remains closed; Phase 8.36 engineering offline request review is now the latest published product milestone. Consumer release gates remain unverified; Git batch-performance integration remains held for its separate security review.",
+    "lastProductMilestone": "Phase 8.36",
+    "originalWorkbook": "Original private 16-sheet .xlsm master updated in place; same Drive file ID, byte-for-byte readback verified 21 Oct 2026.",
     "batching": "HOLD — independent security review and product release gates outstanding",
     "reportPath": "docs/phase-8-35-workflow-assessment.md"
   }
