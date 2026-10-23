@@ -121,3 +121,22 @@
  .regression-date,.regression-row a{text-align:left}
  .milestone-number{font-size:31px}
 }
+
+/* 2026-10-23: match milestone typography to the native dashboard sans family.
+   Explicit local fallbacks and versioned stylesheet protect iOS cached rendering. */
+.milestone-kpi .panel-head h2,
+.milestone-kpi .milestone-number {
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+  font-style:normal;
+  font-synthesis:none;
+}
+.milestone-kpi .panel-head h2 { font-weight:750; }
+.milestone-kpi .milestone-number {
+  font-size:clamp(31px,3vw,39px);
+  font-weight:800;
+  line-height:1.14;
+  letter-spacing:-.045em;
+}
+@media(max-width:610px) {
+  .milestone-kpi .milestone-number { font-size:34px; letter-spacing:-1.2px; }
+}

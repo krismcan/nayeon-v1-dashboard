@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "snapshotDate": "2026-10-21",
-  "snapshotLabel": "Phase 8.36 offline request review product release sealed · Phase 8.35 governance complete",
+  "snapshotLabel": "Phase 8.36 offline request review · product release sealed",
   "sourceDescription": "Formal architecture, capability and release metrics are preserved from the ORIGINAL same-ID private 16-sheet Nayeon v1 master workbook, reconciled in place on 21 October 2026 with exact readback. Latest verified engineering product milestone: Phase 8.36 offline request review, exact 19-path GitHub commit and annotated tag, independently reviewed and backed by three 2,868/2,868 full native Windows regressions. Phase 8.35 remains governance-only. No live AI provider, end-user acceptance or installer claim.",
   "scoring": {
     "architecture": "Strict completed architecture phases / all v1 phases. No partial credit.",

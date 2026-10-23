@@ -79,10 +79,7 @@ function renderTop(){
       workflow.status!=='CLOSED — GOVERNANCE ONLY') {
     throw new Error('Workflow assessment is inconsistent with product release truth');
   }
-  $('workflowPhase').textContent=workflow.latestAssessment;
-  $('workflowStatus').textContent=workflow.status;
-  $('workflowSummary').textContent=workflow.summary;
-  $('workflowReportLink').href=workflow.reportPath;
+  // Phase 8.35 stays in verified history only; no duplicate overview display.
   $('testPassed').textContent=snapshot.tests.passed.toLocaleString('en-GB');$('testTotal').textContent=snapshot.tests.total.toLocaleString('en-GB');
   $('snapshotLabel').textContent=snapshot.snapshotLabel;$('snapshotDate').textContent=fmtDate(snapshot.snapshotDate);
   $('footerDate').textContent='Data snapshot · '+fmtDate(snapshot.snapshotDate);
