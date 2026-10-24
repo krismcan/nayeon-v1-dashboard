@@ -81,7 +81,6 @@ function renderTop(){
   }
   // Phase 8.35 stays in verified history only; no duplicate overview display.
   $('testPassed').textContent=snapshot.tests.passed.toLocaleString('en-GB');$('testTotal').textContent=snapshot.tests.total.toLocaleString('en-GB');
-  $('snapshotLabel').textContent=snapshot.snapshotLabel;$('snapshotDate').textContent=fmtDate(snapshot.snapshotDate);
   $('footerDate').textContent='Data snapshot · '+fmtDate(snapshot.snapshotDate);
   $('repoLink').href=snapshot.repository.url;
 }
