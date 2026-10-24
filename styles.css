@@ -140,3 +140,10 @@
 @media(max-width:610px) {
   .milestone-kpi .milestone-number { font-size:34px; letter-spacing:-1.2px; }
 }
+
+/* Mobile branding deduplication: the hero retains the full accessible
+   Nayeon v1 title. Keep the compact N icon in the mobile navigation. */
+@media(max-width:610px) {
+  .topbar .brand-copy { display:none; }
+  .topbar .brand { flex-shrink:0; }
+}

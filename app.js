@@ -156,8 +156,26 @@ function renderTimeline(){
  }
  const gov=`<div class="milestone-row governance" data-milestone-kind="governance"><span class="milestone-list-mark">✓</span><div class="milestone-row-main"><div class="milestone-row-title"><strong>${safe(g.latestAssessment)}</strong><span>GOVERNANCE · CLOSED</span></div><p>Engineering workflow assessment completed; does not represent a product release.</p></div><time class="milestone-row-date">19 OCT 2026</time><a href="${safe(g.reportPath)}">Assessment ↗</a></div>`;
  const product=(m)=>`<div class="milestone-row" data-milestone-kind="product"><span class="milestone-list-mark">✓</span><div class="milestone-row-main"><div class="milestone-row-title"><strong>${safe(m.name)}</strong><span>PRODUCT · SEALED</span></div><p>${safe(m.summary||m.detail)}</p></div><time class="milestone-row-date">${safe(m.date).toUpperCase()}</time><a href="https://github.com/krismcan/Mark-LV/commit/${encodeURIComponent(m.commit)}" target="_blank" rel="noopener noreferrer">Commit ↗</a></div>`;
- $('roadmapTimeline').innerHTML=gov+product(last);
- $('olderTimeline').innerHTML=snapshot.milestones.slice(0,-1).reverse().map(product).join('');
+ // Combine verified product releases and the governance-only 8.35 decision
+ // into one chronological timeline. Do not omit 8.36 or promote 8.35 to product.
+ const records=snapshot.milestones.filter(m=>m.status==='CLOSED').map(m=>({
+   number:Number(m.name.replace(/^Phase /,'')), markup:product(m)
+ }));
+ const governanceNumber=Number(g.latestAssessment.replace(/^Phase /,''));
+ if(!Number.isFinite(governanceNumber) ||
+    records.some(x=>!Number.isFinite(x.number)||x.number===governanceNumber)) {
+   throw new Error('Invalid or duplicated governance/product milestone');
+ }
+ records.push({number:governanceNumber, markup:gov});
+ records.sort((a,b)=>b.number-a.number);
+ const recent=records.filter(x=>x.number>=8.34);
+ const earlier=records.filter(x=>x.number>=8.29&&x.number<8.34);
+ if(recent.length<4 || earlier.length!==5 ||
+    !recent.some(x=>x.number===governanceNumber)) {
+   throw new Error('Verified milestone timeline incomplete');
+ }
+ $('roadmapTimeline').innerHTML=recent.map(x=>x.markup).join('');
+ $('olderTimeline').innerHTML=earlier.map(x=>x.markup).join('');
 }
 function renderHistory(){
  const closed=snapshot.milestones.filter(m=>m.status==='CLOSED'&&
