@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "snapshotDate": "2026-10-21",
-  "snapshotLabel": "Phase 8.36 offline request review · product release sealed",
-  "sourceDescription": "Formal architecture, capability and release metrics are preserved from the ORIGINAL same-ID private 16-sheet Nayeon v1 master workbook, reconciled in place on 21 October 2026 with exact readback. Latest verified engineering product milestone: Phase 8.36 offline request review, exact 19-path GitHub commit and annotated tag, independently reviewed and backed by three 2,868/2,868 full native Windows regressions. Phase 8.35 remains governance-only. No live AI provider, end-user acceptance or installer claim.",
+  "snapshotDate": "2026-10-24",
+  "snapshotLabel": "Phase 8.37 offline provider request draft · product release verified",
+  "sourceDescription": "Formal architecture, capability and release metrics reconciled with the ORIGINAL same-ID private 16-sheet Nayeon v1 master workbook, updated in place and byte-for-byte verified on 24 October 2026. Latest product milestone Phase 8.37: reviewed offline provider request draft, exact 20-path GitHub branch and annotated tag, native Windows pre-stage, staged, and corrected postcommit regressions each 2,954/2,954 PASS. Phase 8.35 remains governance-only. No live provider calls, end-user acceptance or installer claim.",
   "scoring": {
     "architecture": "Strict completed architecture phases / all v1 phases. No partial credit.",
     "release": "Verified complete end-user acceptance gates / 12.",
@@ -20,22 +20,22 @@
     "verified": 0
   },
   "tests": {
-    "passed": 2868,
-    "total": 2868,
-    "scope": "Phase 8.36 authoritative native Windows pre-stage, exact staged and postcommit regressions: each 2,868/2,868 PASS, zero failures/errors after Tk owner-thread runner cleanup. These are engineering regressions, not installed-user acceptance.",
+    "passed": 2954,
+    "total": 2954,
+    "scope": "Phase 8.37 authoritative native Windows pre-stage, exact staged and corrected postcommit regressions: each 2,954/2,954 PASS; final postcommit exit 0, 7,513.701 seconds and SHA256 D30908DCAF5906AD6E3089EDB01376DE9CFE68765602C1F7D81F81723F496487. Earlier postcommit retry failed because child Python processes created ignored .pyc files; 26 generated files removed, no weakened integrity checks. These are engineering regressions, not installed-user acceptance.",
     "freshClone": false
   },
   "security": {
-    "review": "Independent Codex review of 19-path Phase 8.36 offline request review; follow-up stage-sensitive test and exact SHA-pin repair reviewed at ef5c496836, no major issues.",
-    "result": "GO within exact Phase 8.36 engineering scope. Historical Git seals and fail-closed runtime boundaries preserved; no end-user acceptance, live provider, network capability, or autonomous-action claim."
+    "review": "Independent Phase 8.37 source/staged review GO for exact 20-path offline provider request draft, affected 57/57 modules (1,084 exact test IDs) PASS, all 3 native Windows full regressions 2,954/2,954 PASS.",
+    "result": "GO within exact Phase 8.37 offline deterministic provider request draft/receipt scope; GitHub product branch and annotated tag independently match commit. No real provider, network, secrets, autonomous action or end-user acceptance claim."
   },
   "repository": {
     "label": "krismcan/Mark-LV",
     "branch": "nayeon-v1",
-    "head": "a12565b9be070684e1d7d801ded4833d13121f94",
+    "head": "87208af710bac90c440f2e0851854318b22e9b88",
     "url": "https://github.com/krismcan/Mark-LV/tree/nayeon-v1"
   },
-  "latestMilestone": "Phase 8.36",
+  "latestMilestone": "Phase 8.37",
   "phases": [
     {
       "id": 0,
@@ -506,6 +506,15 @@
       "regression": 2868,
       "commit": "a12565b9be070684e1d7d801ded4833d13121f94",
       "summary": "Offline request review · reviewed and GitHub sealed"
+    },
+    {
+      "name": "Phase 8.37",
+      "date": "24 Oct 2026",
+      "status": "CLOSED",
+      "detail": "Offline Provider Request Draft: exactly 20 reviewed/pinned paths; bounded deterministic typed request draft and receipt with explicit user-visible review, cancellation/revocation and Tk owner-thread controls. 57/57 affected historical modules and 1,084 exact IDs PASS. Native Windows full pre-stage, staged and corrected postcommit regressions all 2,954/2,954 PASS; postcommit exit 0, log SHA256 D30908DCAF5906AD6E3089EDB01376DE9CFE68765602C1F7D81F81723F496487. Bytecode cache contamination in first direct retry diagnosed; generated files removed, historical integrity guard unchanged, clean EXACT_CHILD verification. GitHub non-force pushed commit 87208af710bac90c440f2e0851854318b22e9b88; annotated tag nayeon-v1-phase-8-37-local-provider-request-draft-01 (object ee8ffc208be5626aecbb1b6c4955ad2a0cbdac63) independently peeled to exact commit. Original private master 16-sheet XLSM updated in place, same Drive ID and SHA256 4b5a7186a8fb397fe53e48bf55cfd2cc6411fd2734bb16936f53ec78dff59f18 verified. No live provider call, real credentials, network send, autonomous action, installer or end-user acceptance.",
+      "regression": 2954,
+      "commit": "87208af710bac90c440f2e0851854318b22e9b88",
+      "summary": "Offline provider request draft · fake-only, sealed on GitHub"
     }
   ],
   "disclosure": "Publicly approved summary of project status only. Original workbook, internal tests, credential information and protected engineering evidence are excluded.",
@@ -714,9 +723,9 @@
     "latestAssessment": "Phase 8.35",
     "status": "CLOSED — GOVERNANCE ONLY",
     "date": "2026-10-19",
-    "summary": "Phase 8.35 workflow governance assessment remains closed; Phase 8.36 engineering offline request review is now the latest published product milestone. Consumer release gates remain unverified; Git batch-performance integration remains held for its separate security review.",
-    "lastProductMilestone": "Phase 8.36",
-    "originalWorkbook": "Original private 16-sheet .xlsm master updated in place; same Drive file ID, byte-for-byte readback verified 21 Oct 2026.",
+    "summary": "Phase 8.35 workflow governance assessment remains closed; Phase 8.37 offline request-draft product release is the latest verified product milestone. Major architecture closure remains 5/19 and consumer release gates 0/12. Separate PRC privileged production autonomy remains security HOLD.",
+    "lastProductMilestone": "Phase 8.37",
+    "originalWorkbook": "Original private 16-sheet macro-enabled .xlsm master updated in place on 24 Oct 2026, same Google Drive file ID, complete downloaded bytes independently SHA256-verified. No replacement workbook.",
     "batching": "HOLD — independent security review and product release gates outstanding",
     "reportPath": "docs/phase-8-35-workflow-assessment.md"
   }
