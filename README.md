@@ -1,12 +1,12 @@
 # Nayeon v1 — Public Development Dashboard
 
-Public, **read-only** interactive dashboard summarising a sanitised **19 October 2026** snapshot from the original private Nayeon v1 architecture/progress workbook.
+Public, **read-only** interactive dashboard summarising a sanitised **24 October 2026** snapshot from the original private Nayeon v1 architecture/progress workbook.
 
-- **Last product milestone:** Phase 8.34 — remotely verified, fake-only reply lifecycle.
+- **Last product milestone:** Phase 8.37 — remotely verified offline provider request draft; no live provider transmission.
 - **Engineering workflow assessment:** Phase 8.35 documented, published and reconciled to the original same-ID workbook on 19 October 2026; this is not an additional product capability release. [Read its decisions and unresolved gates](docs/phase-8-35-workflow-assessment.md).
 - **Architecture:** 5/19 phases closed (26.3%).
 - **Release acceptance:** 0/12 gates verified.
-- **Authoritative product regression:** 2,805/2,805 passing in **each** of the Phase 8.34 pre-stage, staged and postcommit Windows runs.
+- **Authoritative product regression:** 2,954/2,954 passing in **each** of the Phase 8.37 pre-stage, staged and postcommit Windows runs.
 - **Capability maturity:** **20.8% provisional** under scoring rubric v1.0 across 15 required v1 capabilities; not consumer-release sign-off. [Scoring method](SCORING_METHOD.md).
 
 Only public display assets and curated aggregate data are committed here. The original master workbook, private engineering evidence, original macro-enabled format, credentials and machine paths are deliberately excluded.
@@ -23,11 +23,11 @@ For **product** milestones, retain exact scope/independent review, focused+affec
 
 For **governance-only assessments**, publish a separate decision record without increasing product milestones, test counts, architecture closure or release-gate completion. Phase 8.35's read-only investigation identified a potential performance improvement, but its persistent Git-blob batching implementation remains **HOLD pending independent security review and product release tests**. See the [assessment](docs/phase-8-35-workflow-assessment.md).
 
-The public numerical snapshot currently reports verified **Phase 8.34**, not a hypothetical Phase 8.35 product seal.
+The public numerical snapshot currently reports verified **Phase 8.37**, not a hypothetical Phase 8.35 product seal.
 
 ## Phase 8.35 dashboard visibility
 
-Phase 8.35 is a **completed governance milestone**, displayed prominently in the milestone KPI and in the **development roadmap** after Phase 8.34. Its review record is linked in both places. It is deliberately **not** inserted into the product-release `milestones` data or the native-regression history chart, because its closure did not add production code, a product seal, a test run or an end-user release gate. The latest sealed product remains Phase 8.34; the formal architecture/release/maturity metrics remain unchanged.
+Phase 8.35 is a **completed governance-only assessment**, displayed once in the **development roadmap** with its review link. It is **not** duplicated in the top product milestone KPI, product-release `milestones` data or native regression history. The latest sealed product is Phase 8.37; formal architecture completion remains 5/19 and consumer release acceptance remains 0/12.
 
 ## October 2026 — foundation and compact-history dashboard display
 
@@ -35,8 +35,6 @@ The *unchanged* private-workbook-derived snapshot includes the original formal
 phases 0–7: 0, 1, 5, 6, 7 COMPLETE and 2, 3, 4 IN PROGRESS. The Roadmap tab
 now shows those exact states in a compact clickable list, with links to the
 existing phase-detail dialog. The milestone timeline displays Phase 8.35
-(governance) and Phase 8.34 (sealed product) first; earlier Phase 8.29–8.33
-milestones and six historical regression/Git checkpoints expand on demand.
-All product and governance statuses, release counts, maturity figures and
-regression counts are unchanged. The dashboard uses locally available system
+(governance) once and Phase 8.37 (sealed product) as the latest product milestone; earlier product milestones and historical regression/Git checkpoints expand on demand.
+Formal architecture and end-user release-gate counts remain unchanged; the product milestone and engineering regression evidence advance to verified Phase 8.37. The dashboard uses locally available system
 fonts instead of attempting to render absent CSP-blocked webfonts.
