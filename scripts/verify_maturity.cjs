@@ -3,11 +3,18 @@ const fs=require('node:fs');const assert=require('node:assert/strict');const pat
 const getFile=(relative)=>fs.readFileSync(path.resolve(__dirname,relative),'utf8');
 const s=JSON.parse(getFile('../data/snapshot.json'));
 const m=s.capabilityMaturity;
+// Release facts must agree with the snapshot, never a hardcoded old release.
+const sealedProducts=s.milestones.filter(x=>x.status==='CLOSED');
+assert(sealedProducts.length>0,'No sealed product milestone');
+const latestProduct=sealedProducts.at(-1);
+assert.equal(s.latestMilestone,latestProduct.name);
+assert.equal(s.tests.total,latestProduct.regression);
+assert.equal(s.tests.passed,s.tests.total);
 assert.equal(m.modelVersion,'1.0-provisional');
 assert.equal(s.architecture.complete,5);assert.equal(s.architecture.total,19);
 assert.equal(s.release.verified,0);assert.equal(s.release.total,12);
-assert.equal(s.tests.passed,2805);assert.equal(s.tests.total,2805);
-assert.equal(s.latestMilestone,'Phase 8.34');
+
+assert.equal(s.latestMilestone,latestProduct.name);
 assert.equal(s.governance.latestAssessment,'Phase 8.35');
 assert.equal(s.governance.status,'CLOSED — GOVERNANCE ONLY');
 assert.equal(s.governance.lastProductMilestone,s.latestMilestone);
@@ -37,9 +44,9 @@ const js=getFile('../data/snapshot.js');
 assert.equal(JSON.stringify(JSON.parse(js.replace(/^window\.NAYEON_SNAPSHOT\s*=\s*/, '').replace(/;\s*$/, ''))),JSON.stringify(s));
 const page=getFile('../index.html');
 assert(page.includes('Latest sealed product milestone'));
-assert(page.includes('milestone-governance'));
+assert(app.includes('data-milestone-kind="governance"'), 'Governance milestone must render in the verified timeline');
 assert(page.includes('Phase 8.35'));
-for(const id of ['architectureRing','maturityRing','releaseRing','maturityMethodButton','workflowPhase','workflowStatus','workflowSummary','workflowReportLink'])assert(page.includes('id="'+id+'"'));
+for(const id of ['architectureRing','maturityRing','releaseRing','maturityMethodButton','milestoneValue','milestoneDescription','milestoneDate','roadmapTimeline'])assert(page.includes('id="'+id+'"'),id);
 console.log('PASS: 15 graded capabilities, 5 pillars, 20.8% model, 5/19 architecture, 0/12 gates');
 
 // Verified pre-8 foundations and shorter mobile-safe milestone history.
@@ -58,6 +65,6 @@ const pageHtml=getFile('../index.html');
 for(const required of ['id="foundationList"','id="foundationSummary"',
                        'id="olderMilestones"','id="regressionDetails"'])
   assert(pageHtml.includes(required),required);
-assert.equal(s.latestMilestone,'Phase 8.34');
+assert.equal(s.latestMilestone,latestProduct.name);
 assert.equal(s.governance.latestAssessment,'Phase 8.35');
 console.log('PASS: 0-7 formal statuses, 5 closed/3 ongoing, compact history, product/governance separation');
