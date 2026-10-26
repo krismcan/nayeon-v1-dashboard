@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
-  "snapshotDate": "2026-10-24",
-  "snapshotLabel": "Phase 8.37 offline provider request draft · product release verified",
-  "sourceDescription": "Formal architecture, capability and release metrics reconciled with the ORIGINAL same-ID private 16-sheet Nayeon v1 master workbook, updated in place and byte-for-byte verified on 24 October 2026. Latest product milestone Phase 8.37: reviewed offline provider request draft, exact 20-path GitHub branch and annotated tag, native Windows pre-stage, staged, and corrected postcommit regressions each 2,954/2,954 PASS. Phase 8.35 remains governance-only. No live provider calls, end-user acceptance or installer claim.",
+  "snapshotDate": "2026-10-26",
+  "snapshotLabel": "BYOK Increment A source sealed on GitHub; original master reconciliation pending",
+  "sourceDescription": "Formal architecture 5/19 and release acceptance 0/12 are preserved from the original 16-sheet master (last reconciled 24 October). On 26 October the BYOK fake-only Increment A code is independently verified on GitHub with three passing 2,992-test native Windows regression gates. Its original same-ID XLSM workbook update remains pending; this public interim snapshot does NOT represent full BYOK release reconciliation. Pillar mapping is a dashboard-only categorisation: completed Computer Control Phase 6 is assigned to Security & Control exactly once.",
   "scoring": {
     "architecture": "Strict completed architecture phases / all v1 phases. No partial credit.",
     "release": "Verified complete end-user acceptance gates / 12.",
     "capability": "Provisional evidence-based 0–4 maturity scores, weighted equally by the five development pillars. Model and per-capability evidence are publicly inspectable; legacy percentages are retired.",
-    "pillars": "Each planned phase assigned to exactly one dashboard pillar for display; counts measure phase closure, not capability readiness."
+    "pillars": "Each architecture phase assigned exactly once to the most relevant dashboard grouping. Completed Computer Control belongs to Security & Control. No double counting; partial Phase 8 engineering milestones do not close Phase 8."
   },
   "architecture": {
     "total": 19,
@@ -20,19 +20,19 @@
     "verified": 0
   },
   "tests": {
-    "passed": 2954,
-    "total": 2954,
-    "scope": "Phase 8.37 authoritative native Windows pre-stage, exact staged and corrected postcommit regressions: each 2,954/2,954 PASS; final postcommit exit 0, 7,513.701 seconds and SHA256 D30908DCAF5906AD6E3089EDB01376DE9CFE68765602C1F7D81F81723F496487. Earlier postcommit retry failed because child Python processes created ignored .pyc files; 26 generated files removed, no weakened integrity checks. These are engineering regressions, not installed-user acceptance.",
+    "passed": 2992,
+    "total": 2992,
+    "scope": "BYOK Increment A latest native Windows pre-stage, staged and post-commit full suites: each 2,992/2,992 PASS, native exit 0. Postcommit log SHA256 d690ed0eec42d1f7562ce47463a26b1fdef8a3b31e36e5d294fe7236d1db87cb. Formal original Drive workbook reconciliation pending; no consumer acceptance implied.",
     "freshClone": false
   },
   "security": {
-    "review": "Independent Phase 8.37 source/staged review GO for exact 20-path offline provider request draft, affected 57/57 modules (1,084 exact test IDs) PASS, all 3 native Windows full regressions 2,954/2,954 PASS.",
-    "result": "GO within exact Phase 8.37 offline deterministic provider request draft/receipt scope; GitHub product branch and annotated tag independently match commit. No real provider, network, secrets, autonomous action or end-user acceptance claim."
+    "review": "Independent BYOK Increment A source/security and staged review GO for 11 approved files; three complete native Windows 2,992/2,992 full-suite PASS gates; exact protected one-child Git commit, annotated tag and peeled GitHub remote verified.",
+    "result": "GO for exact fake-only Increment A source and GitHub engineering release. Original same-ID master update, dashboard reconciliation and final release closure pending. No live keys, providers, default consumer UI or consumer acceptance."
   },
   "repository": {
     "label": "krismcan/Mark-LV",
     "branch": "nayeon-v1",
-    "head": "87208af710bac90c440f2e0851854318b22e9b88",
+    "head": "4110fa69849f8127a325f9a9001284cd1bd3a59c",
     "url": "https://github.com/krismcan/Mark-LV/tree/nayeon-v1"
   },
   "latestMilestone": "Phase 8.37",
@@ -98,7 +98,7 @@
       "name": "Secure Secrets & BYOK Onboarding",
       "status": "IN PROGRESS",
       "source": "Build Plan!G13",
-      "summary": "Turn the provider connection into a consumer-safe first-run flow."
+      "summary": "Secure onboarding remains IN PROGRESS; BYOK Increment A fake-only owner GitHub-sealed 26 Oct. No real-key/provider consumer validation."
     },
     {
       "id": 9,
@@ -181,8 +181,7 @@
         1,
         2,
         3,
-        5,
-        6
+        5
       ]
     },
     {
@@ -191,9 +190,11 @@
       "icon": "shield",
       "phaseIds": [
         4,
+        6,
         8,
         16
-      ]
+      ],
+      "evidenceNote": "Computer Control (Phase 6) is complete. BYOK Increment A is GitHub-sealed and fake-only; the wider Phase 8 is still in progress."
     },
     {
       "id": "intelligence",
@@ -278,7 +279,7 @@
       "name": "Secure BYOK",
       "pillar": "security",
       "evidence": "BOUNDED/UNDERWAY",
-      "detail": "Secure setup foundations and offline tests exist; real-user provider onboarding is not release-accepted.",
+      "detail": "Fake-only first-run connection ownership/composition passed all three 2,992-test Windows regressions and was published to GitHub 26 Oct 2026. No real-key entry, secure storage end-user flow or provider validation accepted.",
       "source": "Capability Review!D11",
       "relatedPhases": "8"
     },
@@ -723,9 +724,9 @@
     "latestAssessment": "Phase 8.35",
     "status": "CLOSED — GOVERNANCE ONLY",
     "date": "2026-10-19",
-    "summary": "Phase 8.35 workflow governance assessment remains closed; Phase 8.37 offline request-draft product release is the latest verified product milestone. Major architecture closure remains 5/19 and consumer release gates 0/12. Separate PRC privileged production autonomy remains security HOLD.",
+    "summary": "Phase 8.35 governance assessment remains closed. BYOK Increment A technical release code verified on GitHub 26 Oct (three 2,992/2,992 suites), but full closure awaits original same-ID XLSM and dashboard readback. PRC remains production HOLD; Phase 8 remains IN PROGRESS; 5/19 architecture and 0/12 consumer release gates.",
     "lastProductMilestone": "Phase 8.37",
-    "originalWorkbook": "Original private 16-sheet macro-enabled .xlsm master updated in place on 24 Oct 2026, same Google Drive file ID, complete downloaded bytes independently SHA256-verified. No replacement workbook.",
+    "originalWorkbook": "Original private 16-sheet XLSM, same Google Drive file ID, last verified 24 Oct 2026 with Phase 8.37; BYOK Increment A same-ID update is still pending. Never claim workbook reconciliation from a local candidate.",
     "batching": "HOLD — independent security review and product release gates outstanding",
     "reportPath": "docs/phase-8-35-workflow-assessment.md"
   }
