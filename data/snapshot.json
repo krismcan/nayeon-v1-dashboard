@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
   "snapshotDate": "2026-10-26",
-  "snapshotLabel": "BYOK Increment A source sealed on GitHub; original master reconciliation pending",
-  "sourceDescription": "Formal architecture 5/19 and release acceptance 0/12 are preserved from the original 16-sheet master (last reconciled 24 October). On 26 October the BYOK fake-only Increment A code is independently verified on GitHub with three passing 2,992-test native Windows regression gates. Its original same-ID XLSM workbook update remains pending; this public interim snapshot does NOT represent full BYOK release reconciliation. Pillar mapping is a dashboard-only categorisation: completed Computer Control Phase 6 is assigned to Security & Control exactly once.",
+  "snapshotLabel": "BYOK Increment A · fake-only engineering release fully reconciled",
+  "sourceDescription": "The ORIGINAL private Nayeon v1 16-sheet macro-enabled master XLSM was updated IN PLACE 26 October 2026 on same Drive ID 1n0tDiBQCkPWluX6eakRiRfq57tflRW5L, downloaded and SHA256 readback verified 1556d4c5d8eb441547b93f203a0457f12a054a569ef83d3e977efb6cdbc555ad. Fake-only BYOK Increment A: 11 approved file paths; independent source/staged security GO; all three complete native Windows regression gates each 2,992/2,992 PASS, exit 0; GitHub exact branch, annotated tag object and peeled child remotely verified. Formal overall architecture remains 5/19, consumer release acceptance remains 0/12. Security & Control groups completed Computer Control Phase 6 once, plus in-progress Phase 8; there is no double counting or consumer readiness claim.",
   "scoring": {
     "architecture": "Strict completed architecture phases / all v1 phases. No partial credit.",
     "release": "Verified complete end-user acceptance gates / 12.",
@@ -27,7 +27,7 @@
   },
   "security": {
     "review": "Independent BYOK Increment A source/security and staged review GO for 11 approved files; three complete native Windows 2,992/2,992 full-suite PASS gates; exact protected one-child Git commit, annotated tag and peeled GitHub remote verified.",
-    "result": "GO for exact fake-only Increment A source and GitHub engineering release. Original same-ID master update, dashboard reconciliation and final release closure pending. No live keys, providers, default consumer UI or consumer acceptance."
+    "result": "Engineering BYOK Increment A RELEASE VERIFIED: fake-only security-reviewed exact 11-path child, three full 2,992/2,992 Windows regressions, GitHub commit/annotated tag, original same-ID XLSM exact downloaded byte readback, and public dashboard code reconciliation. NOT real BYOK user acceptance."
   },
   "repository": {
     "label": "krismcan/Mark-LV",
@@ -35,7 +35,7 @@
     "head": "4110fa69849f8127a325f9a9001284cd1bd3a59c",
     "url": "https://github.com/krismcan/Mark-LV/tree/nayeon-v1"
   },
-  "latestMilestone": "Phase 8.37",
+  "latestMilestone": "BYOK Increment A",
   "phases": [
     {
       "id": 0,
@@ -516,6 +516,16 @@
       "regression": 2954,
       "commit": "87208af710bac90c440f2e0851854318b22e9b88",
       "summary": "Offline provider request draft · fake-only, sealed on GitHub"
+    },
+    {
+      "name": "BYOK Increment A",
+      "date": "26 Oct 2026",
+      "status": "CLOSED",
+      "sortOrder": 8.375,
+      "summary": "Fake-only first-run provider connection owner · GitHub sealed and master reconciled; not live BYOK",
+      "detail": "11 independently reviewed files (6 added, 5 modified), first-run connection owner composition with fail-closed controls. Three complete authoritative native Windows full regressions pre-stage/staged/postcommit each 2,992/2,992 PASS, native exit0. Exact GitHub branch commit 4110fa69849f8127a325f9a9001284cd1bd3a59c, protected one-child parent 87208af710bac90c440f2e0851854318b22e9b88 and annotated nayeon-v1-phase8-byok-first-run-owner-fake-only-01 tag object 7496961c83de9607402dcdabff25917674d6688a independently read back. Original 16-sheet XLSM Drive file updated same ID and SHA256 1556d4c5d8eb441547b93f203a0457f12a054a569ef83d3e977efb6cdbc555ad verified. Security & Control now includes complete Computer Control Phase 6 without double counting; Phase 8 still IN PROGRESS, 5/19 overall architecture phases complete, 0/12 consumer release gates verified. No real credentials/provider, default live UI or PRC privileged production service.",
+      "regression": 2992,
+      "commit": "4110fa69849f8127a325f9a9001284cd1bd3a59c"
     }
   ],
   "disclosure": "Publicly approved summary of project status only. Original workbook, internal tests, credential information and protected engineering evidence are excluded.",
@@ -724,9 +734,9 @@
     "latestAssessment": "Phase 8.35",
     "status": "CLOSED — GOVERNANCE ONLY",
     "date": "2026-10-19",
-    "summary": "Phase 8.35 governance assessment remains closed. BYOK Increment A technical release code verified on GitHub 26 Oct (three 2,992/2,992 suites), but full closure awaits original same-ID XLSM and dashboard readback. PRC remains production HOLD; Phase 8 remains IN PROGRESS; 5/19 architecture and 0/12 consumer release gates.",
-    "lastProductMilestone": "Phase 8.37",
-    "originalWorkbook": "Original private 16-sheet XLSM, same Google Drive file ID, last verified 24 Oct 2026 with Phase 8.37; BYOK Increment A same-ID update is still pending. Never claim workbook reconciliation from a local candidate.",
+    "summary": "Operating Model v2.1 independent governance GO (host document only). BYOK Increment A fake-only engineering release fully reconciled on 26 Oct: three 2,992/2,992 native Windows suites, remote source/tag, original 16-sheet master exact same ID and public dashboard. PRC production HOLD, Phase 8.38 HOLD until original roadmap review; Phase 8 remains IN PROGRESS, architecture 5/19 and end-user release gates 0/12.",
+    "lastProductMilestone": "BYOK Increment A",
+    "originalWorkbook": "Original existing 16-sheet macro-enabled XLSM updated IN PLACE (not duplicated) in Google Drive 26 Oct 2026, ID 1n0tDiBQCkPWluX6eakRiRfq57tflRW5L; readback SHA256 1556d4c5d8eb441547b93f203a0457f12a054a569ef83d3e977efb6cdbc555ad equals prepared evidence workbook; historical sheets, macros container and formatting preserved.",
     "batching": "HOLD — independent security review and product release gates outstanding",
     "reportPath": "docs/phase-8-35-workflow-assessment.md"
   }
