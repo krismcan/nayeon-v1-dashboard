@@ -10,7 +10,7 @@
   <meta property="og:title" content="Nayeon v1 | Progress & Readiness" />
   <meta property="og:description" content="A transparent, read-only development dashboard built from verified architecture and release evidence." />
   <title>Nayeon v1 — Development Dashboard</title>
-  <link rel="stylesheet" href="styles.css?v=byok-full-reconciled-20261026" />
+  <link rel="stylesheet" href="styles.css?v=pillar-dual-list-20261026" />
 </head>
 <body>
   <div class="backdrop" aria-hidden="true"></div>
@@ -112,7 +112,7 @@
       <section class="two-column" id="capabilities" aria-label="Capability evidence and architecture analysis">
         <article class="panel chart-panel">
           <div class="section-heading"><div><p class="eyebrow tiny">CAPABILITY INVENTORY</p><h2>Where every capability stands</h2><p>All 16 areas from the master review — ranked by evidence category, not unverified percentages.</p></div><span class="small-tag">16 / 16 tracked</span></div>
-          <div class="filters" id="capFilters" aria-label="Filter capabilities by pillar"></div>
+          <div class="filters" id="capFilters" aria-label="Filter capabilities by pillar"></div><p class="inventory-scope" id="capabilityFilterSummary" aria-live="polite"></p>
           <div class="capability-list" id="capabilityList"></div>
           <div class="chart-note"><span class="note-symbol">ⓘ</span> <span>“Scoped foundation” means bounded engineering evidence exists, not that the full user-facing capability is ready.</span></div>
         </article>
@@ -133,14 +133,14 @@
       </section>
 
       <section id="pillars" class="pillars-block">
-        <div class="section-heading outside"><div><p class="eyebrow tiny">THE FIVE DEVELOPMENT PILLARS</p><h2>Architecture, organised</h2><p>Each of the 19 architecture phases is assigned once for these group-level charts. Click a pillar to filter the detail below.</p></div><span class="small-tag">SOURCE: MASTER BUILD PLAN</span></div>
+        <div class="section-heading outside"><div><p class="eyebrow tiny">THE FIVE DEVELOPMENT PILLARS</p><h2>Architecture, organised</h2><p>All 19 architecture phases are assigned once. Phase counts and capability inventories differ: choose PHASES or CAPABILITIES for each pillar.</p></div><span class="small-tag">SOURCE: MASTER BUILD PLAN</span></div>
         <div class="pillar-grid" id="pillarsGrid"></div>
       </section>
 
       <section id="phases" class="panel architecture-section">
         <div class="section-heading"><div><p class="eyebrow tiny">MASTER ARCHITECTURE REGISTER</p><h2>Phase-by-phase progress</h2><p>A complete, searchable view of the 19 major v1 phases and their formal exit status.</p></div><span class="small-tag">STRICT STATUS · NO PARTIAL CREDIT</span></div>
         <div class="phase-controls"><div class="search-wrap"><span data-icon="search"></span><input id="phaseSearch" type="search" placeholder="Search the architecture roadmap..." aria-label="Search phases" autocomplete="off" /></div><div class="select-wrap"><label for="phaseFilter">Status</label><select id="phaseFilter"><option value="all">All statuses</option><option value="COMPLETE">Complete</option><option value="IN PROGRESS">In progress</option><option value="NOT STARTED">Not started</option></select></div></div>
-        <div class="phase-list" id="phaseList"></div><div id="phaseEmpty" class="no-results" hidden>No matching phases. Try a different search or status.</div>
+        <div class="phase-pillar-filter" id="phasePillarFilter" aria-live="polite" hidden></div><div class="phase-list" id="phaseList"></div><div id="phaseEmpty" class="no-results" hidden>No matching phases. Try a different search or status.</div>
       </section>
 
       <section id="roadmap" class="panel roadmap-section">
@@ -178,6 +178,6 @@
   <dialog id="detailDialog" class="detail-dialog"><form method="dialog"><button class="close-dialog" aria-label="Close detail">✕</button></form><div id="detailDialogBody"></div></dialog>
   <dialog id="methodDialog" class="detail-dialog methodology-dialog"><form method="dialog"><button class="close-dialog" aria-label="Close methodology">✕</button></form><p class="eyebrow tiny">HOW WE MEASURE PROGRESS</p><h2>Transparent by design.</h2><div id="methodBody"></div></dialog>
   <script src="data/snapshot.js?v=byok-full-reconciled-20261026"></script>
-  <script src="app.js?v=byok-full-reconciled-20261026"></script>
+  <script src="app.js?v=pillar-dual-list-20261026"></script>
 </body>
 </html>

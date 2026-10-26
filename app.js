@@ -107,26 +107,42 @@ function renderCapabilityFilters(){
 }
 function renderCapabilityList(){
  const current=orderedCapabilities.filter(x=>currentPillar==='all'||x.pillar===currentPillar);
+ const optional=current.filter(c=>c.evidence==='OPTIONAL/FUTURE').length;
+ $('capabilityFilterSummary').textContent=(currentPillar==='all'?'All pillars':pillarById[currentPillar].name)+': '+current.length+' capabilities'+(optional?' ('+optional+' optional future)':'')+'; architecture phase totals are separate.';
  $('capabilityList').innerHTML=current.map(c=>{
  const d=evidenceDetail(c);
  return `<button class="capability-row" type="button" data-cap="${safe(c.id)}" aria-label="More about ${safe(c.name)}, ${safe(d.name)}"><span class="capability-name"><span class="capability-icon">${icon(pillarById[c.pillar].icon)}</span>${safe(c.name)}</span><span class="evidence-bar" aria-hidden="true"><span class="evidence-fill ${d.className}"></span></span><span class="evidence-label ${d.className}">${safe(d.name)}</span><span class="row-arrow">›</span></button>`;
  }).join('');
  document.querySelectorAll('[data-cap]').forEach(node=>node.addEventListener('click',()=>showCapability(orderedCapabilities.find(c=>c.id===node.dataset.cap))));
 }
-function highlightPillars(){document.querySelectorAll('[data-pillar]').forEach(node=>node.classList.toggle('selected',node.dataset.pillar===currentPillar));}
+function highlightPillars(){document.querySelectorAll('[data-pillar]').forEach(node=>node.classList.toggle('selected',node.dataset.pillar===currentPillar||node.dataset.pillar===phasePillar));}
 function renderPillars(){
  $('pillarsGrid').innerHTML=snapshot.pillars.map(p=>{
- const phases=p.phaseIds.map(n=>phaseById[n]);const complete=phases.filter(x=>x.status==='COMPLETE').length;
- const active=phases.filter(x=>x.status==='IN PROGRESS').length;
- return `<button type="button" class="panel pillar" data-pillar="${safe(p.id)}" aria-label="Filter capabilities to ${safe(p.name)}"><div class="pillar-top"><span class="head-icon ${p.id==='security'?'rose':p.id==='intelligence'?'purple':p.id==='product'?'blue':'sky'}">${icon(p.icon)}</span><span class="pillar-title">${safe(p.name)}</span></div><div class="pillar-stat"><span>${complete} <small>/ ${phases.length}</small></span><small>${percent(complete,phases.length).toFixed(0)}% phases closed</small></div><div class="pillar-progress"><span style="width:${percent(complete,phases.length)}%"></span></div><p class="pillar-summary">${complete} closed · ${active} in progress · ${phases.length-complete-active} not started</p>${p.evidenceNote?`<p class="pillar-evidence">${safe(p.evidenceNote)}</p>`:""}<div class="pillar-bottom">VIEW CAPABILITIES ↗</div></button>`;
+  const phases=p.phaseIds.map(n=>phaseById[n]);
+  const caps=snapshot.capabilities.filter(c=>c.pillar===p.id);
+  const done=phases.filter(x=>x.status==='COMPLETE').length;
+  const active=phases.filter(x=>x.status==='IN PROGRESS').length;
+  const optional=caps.filter(c=>c.evidence==='OPTIONAL/FUTURE').length;
+  return `<article class="panel pillar" data-pillar="${safe(p.id)}"><div class="pillar-top"><span class="head-icon ${p.id==='security'?'rose':p.id==='intelligence'?'purple':p.id==='product'?'blue':'sky'}">${icon(p.icon)}</span><span class="pillar-title">${safe(p.name)}</span></div><div class="pillar-stat"><span>${done} <small>/ ${phases.length}</small></span><small>${percent(done,phases.length).toFixed(0)}% phases closed</small></div><div class="pillar-progress"><span style="width:${percent(done,phases.length)}%"></span></div><p class="pillar-summary">${done} closed · ${active} in progress · ${phases.length-done-active} not started</p><p class="pillar-scope"><strong>${phases.length} architecture phases</strong> · ${caps.length} capabilities${optional?` (${optional} optional)`:""}</p>${p.evidenceNote?`<p class="pillar-evidence">${safe(p.evidenceNote)}</p>`:""}<div class="pillar-bottom"><button type="button" class="pillar-action" data-target="phases" aria-label="View ${phases.length} phases in ${safe(p.name)}">PHASES (${phases.length}) ↗</button><button type="button" class="pillar-action" data-target="capabilities" aria-label="View ${caps.length} capabilities in ${safe(p.name)}">CAPABILITIES (${caps.length}) ↗</button></div></article>`;
  }).join('');
- document.querySelectorAll('[data-pillar]').forEach(node=>node.addEventListener('click',()=>{
- currentPillar=node.dataset.pillar;renderCapabilityFilters();renderCapabilityList();highlightPillars();$('capabilities').scrollIntoView({behavior:'smooth',block:'start'});
+ document.querySelectorAll('[data-pillar] .pillar-action').forEach(button=>button.addEventListener('click',()=>{
+  const id=button.closest('[data-pillar]').dataset.pillar;
+  if(button.dataset.target==='phases'){
+   phasePillar=id;currentPillar='all';renderCapabilityFilters();renderCapabilityList();phaseSearch='';statusFilter='all';$('phaseSearch').value='';$('phaseFilter').value='all';
+   renderPhases();highlightPillars();$('phases').scrollIntoView({behavior:'smooth',block:'start'});
+  }else{
+   currentPillar=id;phasePillar='all';renderPhases();renderCapabilityFilters();renderCapabilityList();highlightPillars();
+   $('capabilities').scrollIntoView({behavior:'smooth',block:'start'});
+  }
  }));
 }
-let phaseSearch='';let statusFilter='all';
+let phaseSearch='';let statusFilter='all';let phasePillar='all';
 function renderPhases(){
- const phases=snapshot.phases.filter(p=>(statusFilter==='all'||p.status===statusFilter)&&(!phaseSearch||`${p.id} ${p.name} ${p.summary}`.toLowerCase().includes(phaseSearch)));
+ const phases=snapshot.phases.filter(p=>(phasePillar==='all'||pillarById[phasePillar].phaseIds.includes(p.id))&&(statusFilter==='all'||p.status===statusFilter)&&(!phaseSearch||`${p.id} ${p.name} ${p.summary}`.toLowerCase().includes(phaseSearch)));
+ const selected=phasePillar==='all'?null:pillarById[phasePillar];
+ $('phasePillarFilter').hidden=!selected;
+ $('phasePillarFilter').innerHTML=selected?`<span>Showing ${selected.phaseIds.length} phases in <strong>${safe(selected.name)}</strong></span><button type="button" id="clearPhasePillar">VIEW ALL 19 PHASES</button>`:'';
+ if(selected)$('clearPhasePillar').addEventListener('click',()=>{phasePillar='all';renderPhases();highlightPillars();});
  $('phaseEmpty').hidden=phases.length>0;
  $('phaseList').innerHTML=phases.map(p=>`<button class="phase-item" type="button" data-phase="${p.id}" aria-label="Phase ${p.id}: ${safe(p.name)}, ${safe(p.status)}"><span class="phase-number">${String(p.id).padStart(2,'0')}</span><span class="phase-text"><strong>${safe(p.name)}</strong><small>ARCHITECTURE PHASE ${p.id}</small></span><span class="mini-status ${getStatusClass(p.status)}">${safe(p.status)}</span></button>`).join('');
  document.querySelectorAll('[data-phase]').forEach(node=>node.addEventListener('click',()=>showPhase(phaseById[Number(node.dataset.phase)])));
@@ -203,6 +219,12 @@ function showMethod(){
  $('methodBody').innerHTML=`<p>Published figures come from a controlled, sanitised snapshot of the private 16-sheet master workbook. The original workbook is not made available to visitors.</p><div class="method-section"><h3>Architecture completion · ${snapshot.architecture.complete}/${snapshot.architecture.total}</h3><p>${safe(m.architecture)}</p><p>Phase population: 0–18. Five complete, five in progress, nine not started. In-progress phases receive <strong>zero</strong> partial credit.</p></div><div class="method-section"><h3>Release acceptance · ${snapshot.release.verified}/${snapshot.release.total}</h3><p>${safe(m.release)} No end-user acceptance gate has passed yet.</p></div><div class="method-section"><h3>Capability maturity · ${calculateMaturity(snapshot.capabilityMaturity).percent.toFixed(1)}% (provisional)</h3><p>${safe(m.capability)} Required v1: 15 capabilities; optional managed-commercial backend is excluded. The five development pillars each weigh 20%; included capabilities within a pillar have equal weight.</p><p><strong>Scoring scale:</strong> ${snapshot.capabilityMaturity.levelDefinitions.map(v=>`${v.level}: ${safe(v.label)}`).join(' · ')}</p><p><strong>Formula:</strong> Mean over five pillars of [sum of included capability levels / (4 × included capability count)] × 100.</p><p>${safe(snapshot.capabilityMaturity.warnings[0])}</p>${snapshot.capabilityMaturity.pillars.map(p=>`<p>${safe(p.pillarName)}: ${p.percent.toFixed(1)}% (${p.earned}/${p.maximum} points)</p>`).join('')}<p><a href="SCORING_METHOD.md" target="_blank" rel="noopener noreferrer" class="panel-link">Read complete public assessment & evidence table ↗</a></p></div><div class="method-section"><h3>Five-pillar mapping</h3><p>${safe(m.pillars)} The pillar closure percentages reflect only the fraction of formally complete phases mapped to that pillar.</p></div><div class="method-section"><h3>Engineering quality</h3><p>The latest authoritative Windows regression is ${Number(snapshot.tests.passed).toLocaleString('en-GB')} / ${Number(snapshot.tests.total).toLocaleString('en-GB')} passing. Independent review and fresh-clone verification are milestone evidence, not product release acceptance.</p></div><div class="method-section"><h3>Publication boundary</h3><p>${safe(snapshot.disclosure)}</p><p>Snapshot date: ${safe(snapshot.snapshotDate)} · Latest closed milestone: ${safe(snapshot.latestMilestone)} · Source identity stays private.</p></div>`;
  openDialog('methodDialog');
 }
+function validatePillarInventory(){
+ const ids=snapshot.pillars.flatMap(p=>p.phaseIds);
+ if(ids.length!==19||new Set(ids).size!==19||snapshot.phases.some(p=>!ids.includes(p.id)))throw new Error('Pillar phase mapping invalid');
+ if(snapshot.capabilities.length!==16||snapshot.capabilities.some(c=>!pillarById[c.pillar]))throw new Error('Pillar capability mapping invalid');
+}
+validatePillarInventory();
 renderTop();renderEvidence();renderCapabilityFilters();renderCapabilityList();renderPillars();renderPhases();renderFoundation();renderTimeline();renderHistory();renderGates();
 document.querySelectorAll('[data-icon]').forEach(node=>{node.innerHTML=icon(node.dataset.icon)});
 $('phaseSearch').addEventListener('input',e=>{phaseSearch=e.target.value.toLowerCase().trim();renderPhases();});

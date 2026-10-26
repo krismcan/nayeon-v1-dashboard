@@ -160,3 +160,15 @@
   .mini-status{grid-row:2;grid-column:2;justify-self:start;white-space:normal;overflow-wrap:break-word;max-width:100%;line-height:1.3}
   .pillar-evidence{font-size:9px}
 }
+
+/* Dual inventory disclosure: architecture phases and capability records are not 1:1. */
+.pillar{cursor:default}
+.pillar-scope{font-size:11px;line-height:1.5;color:#bed7eb;margin:9px 0 0}
+.pillar-scope strong{color:#f2f8ff}
+.pillar-bottom{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;width:100%}
+.pillar-action{font-size:10px;min-width:0;padding:9px 5px;line-height:1.3;min-height:34px;background:#0a2a48;color:#91dfff;border:1px solid #32688e;border-radius:8px;font-weight:750;cursor:pointer;white-space:normal}
+.pillar-action:hover,.pillar-action:focus-visible{background:#124969;border-color:#6ad4ff;outline:2px solid transparent}
+.inventory-scope{font-size:12px;color:#a8c7df;margin:-3px 0 12px}
+.phase-pillar-filter:not([hidden]){display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px;padding:11px 12px;margin:6px 0 12px;border:1px solid #32688e;border-radius:9px;background:#0d2b48;color:#d3ebff;font-size:12px}
+.phase-pillar-filter button{background:#123c60;color:#a6e7ff;border:1px solid #4384ac;border-radius:7px;padding:8px 11px;font-size:10px;font-weight:800;cursor:pointer}
+@media(max-width:610px){.pillar-scope{font-size:10px}.pillar-bottom{grid-template-columns:1fr;gap:6px}.pillar-action{font-size:10px;min-height:36px}.pillar{min-width:0}.phase-pillar-filter:not([hidden]){font-size:11px}}
