@@ -158,7 +158,7 @@ function renderTimeline(){
  // Combine verified product releases and the governance-only 8.35 decision
  // into one chronological timeline. Do not omit 8.36 or promote 8.35 to product.
  const records=snapshot.milestones.filter(m=>m.status==='CLOSED').map(m=>({
-   number:Number(m.name.replace(/^Phase /,'')), markup:product(m)
+   number:Number.isFinite(m.sortOrder)?m.sortOrder:Number(m.name.replace(/^Phase /,'')), markup:product(m)
  }));
  const governanceNumber=Number(g.latestAssessment.replace(/^Phase /,''));
  if(!Number.isFinite(governanceNumber) ||
