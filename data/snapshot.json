@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "snapshotDate": "2026-10-26",
-  "snapshotLabel": "BYOK Increment A · fake-only engineering release fully reconciled",
-  "sourceDescription": "The ORIGINAL private Nayeon v1 16-sheet macro-enabled master XLSM was updated IN PLACE 26 October 2026 on same Drive ID 1n0tDiBQCkPWluX6eakRiRfq57tflRW5L, downloaded and SHA256 readback verified 1556d4c5d8eb441547b93f203a0457f12a054a569ef83d3e977efb6cdbc555ad. Fake-only BYOK Increment A: 11 approved file paths; independent source/staged security GO; all three complete native Windows regression gates each 2,992/2,992 PASS, exit 0; GitHub exact branch, annotated tag object and peeled child remotely verified. Formal overall architecture remains 5/19, consumer release acceptance remains 0/12. Security & Control groups completed Computer Control Phase 6 once, plus in-progress Phase 8; there is no double counting or consumer readiness claim.",
+  "snapshotDate": "2026-10-28",
+  "snapshotLabel": "BYOK Increment B · fake-only engineering release fully reconciled",
+  "sourceDescription": "The ORIGINAL private Nayeon v1 16-sheet macro-enabled master XLSM was updated IN PLACE 28 October 2026, original Google Drive file ID 1n0tDiBQCkPWluX6eakRiRfq57tflRW5L, preserving all existing 16 sheets and package parts. Raw Drive readback matches prepared workbook SHA256 ab06cf31c539fbda676700934cbf4ab499822ba3c7876d582a7eae23bb1019a6. Three authoritative full Windows Python 3.12.10 regression suites, each 3,073/3,073 PASS with exit 0 in unstaged, staged, and exact committed states; independent source/security and staged review GO; exactly 23 approved paths (7 new, 16 modified). The exact GitHub commit e3612279cb972e68e2487702183d5bf5b8f6c4a1 and annotated tag nayeon-v1-phase8-byok-first-run-connection-ui-fake-only-01 have remote branch/tag object readback verification. Formal architecture remains 5/19 completed phases, consumer release acceptance remains 0/12. BYOK B is offline fake-only UI and not live provider-key validation.",
   "scoring": {
     "architecture": "Strict completed architecture phases / all v1 phases. No partial credit.",
     "release": "Verified complete end-user acceptance gates / 12.",
@@ -20,22 +20,22 @@
     "verified": 0
   },
   "tests": {
-    "passed": 2992,
-    "total": 2992,
-    "scope": "BYOK Increment A latest native Windows pre-stage, staged and post-commit full suites: each 2,992/2,992 PASS, native exit 0. Postcommit log SHA256 d690ed0eec42d1f7562ce47463a26b1fdef8a3b31e36e5d294fe7236d1db87cb. Formal original Drive workbook reconciliation pending; no consumer acceptance implied.",
+    "passed": 3073,
+    "total": 3073,
+    "scope": "BYOK Increment B: all three native Windows Python3.12.10 full regressions 3,073/3,073 PASS. UNSTAGED SHA256 9C266B8AB676DD2D4C5E8A9009388E4C965D325C6FAD34411CCE3E8D955E5738; STAGED SHA256 9897F208390B315B79C636BFABD4A80052DFADAB19743666A66B24CCE4F71CB1; COMMITTED SHA256 17A098AC238AA25B856857DAED962A303CDD9244B6A46DF4652B0EC32BEC0DA3. Each native exit 0; release GitHub and original Drive XLSM exact-byte reconciliation verified. No real-key or end-user consumer acceptance implied.",
     "freshClone": false
   },
   "security": {
-    "review": "Independent BYOK Increment A source/security and staged review GO for 11 approved files; three complete native Windows 2,992/2,992 full-suite PASS gates; exact protected one-child Git commit, annotated tag and peeled GitHub remote verified.",
-    "result": "Engineering BYOK Increment A RELEASE VERIFIED: fake-only security-reviewed exact 11-path child, three full 2,992/2,992 Windows regressions, GitHub commit/annotated tag, original same-ID XLSM exact downloaded byte readback, and public dashboard code reconciliation. NOT real BYOK user acceptance."
+    "review": "Independent BYOK Increment B source/security and staged review GO for exact 23 reviewed paths; Three authoritative full Windows Python 3.12.10 regression suites, each 3,073/3,073 PASS with exit 0 in unstaged, staged, and exact committed states; independent source/security and staged review GO; exactly 23 approved paths (7 new, 16 modified). GitHub exact one-child SHA, annotated tag, and peeled object verified.",
+    "result": "Engineering BYOK Increment B RELEASE VERIFIED: Three authoritative full Windows Python 3.12.10 regression suites, each 3,073/3,073 PASS with exit 0 in unstaged, staged, and exact committed states; independent source/security and staged review GO; exactly 23 approved paths (7 new, 16 modified). GitHub remote commit/tag readback, original same-ID Drive 16-sheet XLSM exact byte readback, and dashboard snapshot reconciled. NOT real BYOK consumer acceptance."
   },
   "repository": {
     "label": "krismcan/Mark-LV",
     "branch": "nayeon-v1",
-    "head": "4110fa69849f8127a325f9a9001284cd1bd3a59c",
+    "head": "e3612279cb972e68e2487702183d5bf5b8f6c4a1",
     "url": "https://github.com/krismcan/Mark-LV/tree/nayeon-v1"
   },
-  "latestMilestone": "BYOK Increment A",
+  "latestMilestone": "BYOK Increment B",
   "phases": [
     {
       "id": 0,
@@ -98,7 +98,7 @@
       "name": "Secure Secrets & BYOK Onboarding",
       "status": "IN PROGRESS",
       "source": "Build Plan!G13",
-      "summary": "Secure onboarding remains IN PROGRESS; BYOK Increment A fake-only owner GitHub-sealed 26 Oct. No real-key/provider consumer validation."
+      "summary": "Secure onboarding remains IN PROGRESS; BYOK Increment B fake-only first-run connection UI GitHub-sealed 28 Oct. Real key storage/provider validation and normal-user acceptance NOT VERIFIED."
     },
     {
       "id": 9,
@@ -194,7 +194,7 @@
         8,
         16
       ],
-      "evidenceNote": "Computer Control (Phase 6) is complete. BYOK Increment A is GitHub-sealed and fake-only; the wider Phase 8 is still in progress."
+      "evidenceNote": "Computer Control (Phase 6) is complete. BYOK Increment B is GitHub-sealed and fake-only; the wider Phase 8 remains IN PROGRESS. No 0/12 consumer gate upgraded."
     },
     {
       "id": "intelligence",
@@ -526,6 +526,16 @@
       "detail": "11 independently reviewed files (6 added, 5 modified), first-run connection owner composition with fail-closed controls. Three complete authoritative native Windows full regressions pre-stage/staged/postcommit each 2,992/2,992 PASS, native exit0. Exact GitHub branch commit 4110fa69849f8127a325f9a9001284cd1bd3a59c, protected one-child parent 87208af710bac90c440f2e0851854318b22e9b88 and annotated nayeon-v1-phase8-byok-first-run-owner-fake-only-01 tag object 7496961c83de9607402dcdabff25917674d6688a independently read back. Original 16-sheet XLSM Drive file updated same ID and SHA256 1556d4c5d8eb441547b93f203a0457f12a054a569ef83d3e977efb6cdbc555ad verified. Security & Control now includes complete Computer Control Phase 6 without double counting; Phase 8 still IN PROGRESS, 5/19 overall architecture phases complete, 0/12 consumer release gates verified. No real credentials/provider, default live UI or PRC privileged production service.",
       "regression": 2992,
       "commit": "4110fa69849f8127a325f9a9001284cd1bd3a59c"
+    },
+    {
+      "name": "BYOK Increment B",
+      "date": "28 Oct 2026",
+      "status": "CLOSED",
+      "sortOrder": 8.376,
+      "summary": "Fake-only first-run connection UI · exact 23-file GitHub seal and master workbook reconciled; not live BYOK",
+      "detail": "Three authoritative full Windows Python 3.12.10 regression suites, each 3,073/3,073 PASS with exit 0 in unstaged, staged, and exact committed states; independent source/security and staged review GO; exactly 23 approved paths (7 new, 16 modified). GitHub one-child commit e3612279cb972e68e2487702183d5bf5b8f6c4a1, parent 4110fa69849f8127a325f9a9001284cd1bd3a59c, annotated tag nayeon-v1-phase8-byok-first-run-connection-ui-fake-only-01 (object dab895740b3ab87aeb979a95f84151a9b2c7fe59) remotely verified 28 October 2026. Original 16-sheet macro-enabled XLSM updated IN PLACE at Drive ID 1n0tDiBQCkPWluX6eakRiRfq57tflRW5L, SHA256 ab06cf31c539fbda676700934cbf4ab499822ba3c7876d582a7eae23bb1019a6 confirmed after raw re-download; unchanged package members preserved. Human-confirmed fake-only first-run provider-selection/offline preview, cancel/recovery and creator-thread safety. Phase 8 IN PROGRESS; 5/19 architecture complete, 0/12 consumer release gates verified. No real keys, live provider validation/calls, background authority, installer or user acceptance.",
+      "regression": 3073,
+      "commit": "e3612279cb972e68e2487702183d5bf5b8f6c4a1"
     }
   ],
   "disclosure": "Publicly approved summary of project status only. Original workbook, internal tests, credential information and protected engineering evidence are excluded.",
@@ -734,10 +744,10 @@
     "latestAssessment": "Phase 8.35",
     "status": "CLOSED — GOVERNANCE ONLY",
     "date": "2026-10-19",
-    "summary": "Operating Model v2.1 independent governance GO (host document only). BYOK Increment A fake-only engineering release fully reconciled on 26 Oct: three 2,992/2,992 native Windows suites, remote source/tag, original 16-sheet master exact same ID and public dashboard. PRC production HOLD, Phase 8.38 HOLD until original roadmap review; Phase 8 remains IN PROGRESS, architecture 5/19 and end-user release gates 0/12.",
-    "lastProductMilestone": "BYOK Increment A",
-    "originalWorkbook": "Original existing 16-sheet macro-enabled XLSM updated IN PLACE (not duplicated) in Google Drive 26 Oct 2026, ID 1n0tDiBQCkPWluX6eakRiRfq57tflRW5L; readback SHA256 1556d4c5d8eb441547b93f203a0457f12a054a569ef83d3e977efb6cdbc555ad equals prepared evidence workbook; historical sheets, macros container and formatting preserved.",
-    "batching": "HOLD — independent security review and product release gates outstanding",
+    "summary": "Operating Model v2.1 engineering workflow assessment Phase 8.35 remains CLOSED (GOVERNANCE ONLY). BYOK Increment B fake-only engineering release reconciled 28 Oct: exact 23 files, independent security reviews GO, three full native Windows 3,073-test regressions PASS, GitHub commit/annotated tag verified, original master XLSM same Drive ID and public dashboard. PRC production HOLD, Phase 8 in progress, architecture 5/19 and consumer 0/12.",
+    "lastProductMilestone": "BYOK Increment B",
+    "originalWorkbook": "Original existing 16-sheet macro-enabled XLSM updated IN PLACE (not duplicated) on 28 Oct 2026 in Google Drive, ID 1n0tDiBQCkPWluX6eakRiRfq57tflRW5L; raw downloaded SHA256 ab06cf31c539fbda676700934cbf4ab499822ba3c7876d582a7eae23bb1019a6 exactly matches approved edited workbook. Historical sheets/formulas/formatting and original package parts preserved.",
+    "batching": "HOLD — PRC production not released; advance product phases only per original roadmap and security prerequisites",
     "reportPath": "docs/phase-8-35-workflow-assessment.md"
   }
 }
