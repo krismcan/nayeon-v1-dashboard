@@ -1,6 +1,6 @@
 # Nayeon v1 — Public capability maturity assessment
 
-**Snapshot:** 17 October 2026 · **Model:** 1.0-provisional · **Status:** Analyst-assessed, not a signed release acceptance result.
+**Snapshot:** 2 November 2026 · **Model:** 1.0-provisional · **Status:** Analyst-assessed, not a signed release acceptance result.
 
 ## Boundary and formula
 
@@ -33,7 +33,7 @@ Scores are verified against master Build Plan, Capability Review, Phase Evidence
 | intelligence | Memory | 0 | No qualifying persistent personal memory workflow is evidenced. | Phase 9 not started. | Capability Review!D12; Build Plan!G14 |
 | interaction | Voice | 0 | No working end-to-end voice workflow is evidenced. | Phase 12 not started. | Capability Review!D13; Build Plan!G17 |
 | intelligence | Assistant identity & configuration | 1 | Typed identity/preferences contracts and bounded offline presentation settings are tested. | No accepted first-run identity and permissions onboarding. | Capability Review!E14; Phase Evidence!D13; Release Gates!C7 |
-| interaction | Vision | 0 | No verified v1 screen/camera perception workflow. | Phase 10 not started. | Capability Review!D15; Build Plan!G15 |
+| interaction | Vision | 1 | Independently reviewed, exact-source verified Phase 10.1 offline observation request/candidate contracts; all three 3,108-test native Windows regressions passed. | No real screen/camera capture, trusted visual-state inspection, privacy redaction attestation or user permission service. Major Phase 10 remains IN PROGRESS. | Capability Review!D15:E15; Phase Evidence!C16:F16; Implementation Progress!A168:H168 |
 | interaction | Browser | 0 | No verified v1 controlled browser inspect/act/verify workflow. | Phase 11 not started. | Capability Review!D16; Build Plan!G16 |
 | product | Proactive events | 0 | No verified bounded proactive event workflow. | Phase 13 not started. | Capability Review!D17; Build Plan!G18 |
 | interaction | Desktop UI | 2 | Phase 8.30 Windows offline Tk workspace and Phase 8.31 bounded conversation session were independently tested. | Offline only: no integrated live AI chat, installed consumer client or acceptance gate. | Capability Review!E18; Implementation Progress!A158:H159; Release Gates!C6/C10 |
@@ -47,11 +47,11 @@ Scores are verified against master Build Plan, Capability Review, Phase Evidence
 | Core & Infrastructure | 6 | 12 | 50.0% |
 | Security & Control | 4 | 12 | 33.3% |
 | Intelligence & Memory | 1 | 12 | 8.3% |
-| Interaction | 2 | 16 | 12.5% |
+| Interaction | 3 | 16 | 18.8% |
 | Product & Operations | 0 | 8 | 0.0% |
-| **Overall (equal-pillar-weighted)** | — | — | **20.8%** |
+| **Overall (equal-pillar-weighted)** | — | — | **22.1%** |
 
-**Separate immutable-at-snapshot counters:** architecture phases **5/19 (26.3%)**, release acceptance gates **0/12**, full Windows regression **2,572/2,572 PASS**, latest closed milestone **8.31**.
+**Separate counters at this snapshot:** architecture phases **5/19 (26.3%)** complete (6 IN PROGRESS, 8 NOT STARTED), end-user release acceptance gates **0/12**, three complete Phase 10.1 native Windows regressions **3,108/3,108 PASS each**, latest sealed engineering milestone **Phase 10.1**.
 
 ## Limitations and review discipline
 
@@ -60,10 +60,11 @@ Scores are verified against master Build Plan, Capability Review, Phase Evidence
 - Desktop UI receives grade 2 **only for the real bounded Phase 8.30/8.31 Windows offline workspace**. Formal Phase 15 remains **NOT STARTED**; no live provider AI conversation or signed installer is accepted.
 - Secure BYOK receives grade 1 because first-run integration is **fake-only** and no live provider credential validation or consumer deployment acceptance has passed.
 - Security gets grade 1 for documented scoped controls/review, **not** a certification, audit, or security assurance claim.
+- Vision grade 1 credits ONLY the independently reviewed offline Phase 10.1 contracts, not a working vision service, camera, screen capture, redaction or end-user task.
 - Scores of 0 do not mean design ideas do not exist; they mean qualifying tested v1 behavior is not evidenced.
 - Historical workbook bars, 40%, 72%, and the unweighted legacy average are **not** reused.
 - Workbook names and public sheet coordinates are trace references only; the original workbook, macros and sensitive engineering artifacts are not published.
 
 To change a score, review new audited workbook + Git evidence, independently verify the relevant behavior and tests, update the corresponding narrative and rating, rerun the validation script, and publish an approved public snapshot as a single commit. Never auto-export the private workbook to this public repository.
 
-**Engineering fork checkpoint:** c9d1b012b79b01897439775fb344819a9cf5367a · 17 October 2026.
+**Engineering fork checkpoint:** be6c126dc5f3a6814925bb95009ef2b2e6be80b7 · 2 November 2026 (Phase 10.1 offline perception contracts; not a production capture release).
