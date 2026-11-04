@@ -1,6 +1,6 @@
 # Nayeon v1 — Public capability maturity assessment
 
-**Snapshot:** 2 November 2026 · **Model:** 1.0-provisional · **Status:** Analyst-assessed, not a signed release acceptance result.
+**Snapshot:** 4 November 2026 (Phase 10.2 engineering evidence; 22.1% provisional scoring unchanged from 2 November assessment) · **Model:** 1.0-provisional · **Status:** Analyst-assessed, not a signed release acceptance result.
 
 ## Boundary and formula
 
@@ -33,7 +33,7 @@ Scores are verified against master Build Plan, Capability Review, Phase Evidence
 | intelligence | Memory | 0 | No qualifying persistent personal memory workflow is evidenced. | Phase 9 not started. | Capability Review!D12; Build Plan!G14 |
 | interaction | Voice | 0 | No working end-to-end voice workflow is evidenced. | Phase 12 not started. | Capability Review!D13; Build Plan!G17 |
 | intelligence | Assistant identity & configuration | 1 | Typed identity/preferences contracts and bounded offline presentation settings are tested. | No accepted first-run identity and permissions onboarding. | Capability Review!E14; Phase Evidence!D13; Release Gates!C7 |
-| interaction | Vision | 1 | Independently reviewed, exact-source verified Phase 10.1 offline observation request/candidate contracts; all three 3,108-test native Windows regressions passed. | No real screen/camera capture, trusted visual-state inspection, privacy redaction attestation or user permission service. Major Phase 10 remains IN PROGRESS. | Capability Review!D15:E15; Phase Evidence!C16:F16; Implementation Progress!A168:H168 |
+| interaction | Vision | 1 | Independently reviewed, exact-source verified Phase 10.1 offline observation request/candidate contracts; all three 3,108-test native Windows regressions passed. | No real screen/camera capture, trusted visual-state inspection, privacy redaction attestation or live OS permission service; the new Phase 10.2 permission ledger is synthetic/offline only. Major Phase 10 remains IN PROGRESS. | Capability Review!D15:E15; Phase Evidence!C16:F16; Implementation Progress!A168:H168 |
 | interaction | Browser | 0 | No verified v1 controlled browser inspect/act/verify workflow. | Phase 11 not started. | Capability Review!D16; Build Plan!G16 |
 | product | Proactive events | 0 | No verified bounded proactive event workflow. | Phase 13 not started. | Capability Review!D17; Build Plan!G18 |
 | interaction | Desktop UI | 2 | Phase 8.30 Windows offline Tk workspace and Phase 8.31 bounded conversation session were independently tested. | Offline only: no integrated live AI chat, installed consumer client or acceptance gate. | Capability Review!E18; Implementation Progress!A158:H159; Release Gates!C6/C10 |
@@ -51,7 +51,7 @@ Scores are verified against master Build Plan, Capability Review, Phase Evidence
 | Product & Operations | 0 | 8 | 0.0% |
 | **Overall (equal-pillar-weighted)** | — | — | **22.1%** |
 
-**Separate counters at this snapshot:** architecture phases **5/19 (26.3%)** complete (6 IN PROGRESS, 8 NOT STARTED), end-user release acceptance gates **0/12**, three complete Phase 10.1 native Windows regressions **3,108/3,108 PASS each**, latest sealed engineering milestone **Phase 10.1**.
+**Separate counters at this snapshot:** architecture phases **5/19 (26.3%)** complete (6 IN PROGRESS, 8 NOT STARTED), end-user release acceptance gates **0/12**, three complete Phase 10.2 native Windows regressions **3,165/3,165 PASS each**, latest sealed engineering milestone **Phase 10.2**.
 
 ## Limitations and review discipline
 
@@ -67,4 +67,4 @@ Scores are verified against master Build Plan, Capability Review, Phase Evidence
 
 To change a score, review new audited workbook + Git evidence, independently verify the relevant behavior and tests, update the corresponding narrative and rating, rerun the validation script, and publish an approved public snapshot as a single commit. Never auto-export the private workbook to this public repository.
 
-**Engineering fork checkpoint:** be6c126dc5f3a6814925bb95009ef2b2e6be80b7 · 2 November 2026 (Phase 10.1 offline perception contracts; not a production capture release).
+**Engineering fork checkpoint:** 4aff3459ee127b0a7a124073aac2a9317e467301 · 4 November 2026 (Phase 10.2 offline synthetic permission ledger, source/security/release GO; not a production capture release).

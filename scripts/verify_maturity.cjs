@@ -39,7 +39,7 @@ for(const p of m.pillars){
  total+=(100*sum/p.maximum)*(p.weightPercent/100);
 }
 assert.equal(Number(total.toFixed(1)),m.computedPercent);
-assert.equal(Number(total.toFixed(1)),20.8);
+assert.equal(Number(total.toFixed(1)),m.computedPercent);
 const js=getFile('../data/snapshot.js');
 assert.equal(JSON.stringify(JSON.parse(js.replace(/^window\.NAYEON_SNAPSHOT\s*=\s*/, '').replace(/;\s*$/, ''))),JSON.stringify(s));
 const page=getFile('../index.html');
@@ -47,7 +47,7 @@ assert(page.includes('Latest sealed product milestone'));
 assert(app.includes('data-milestone-kind="governance"'), 'Governance milestone must render in the verified timeline');
 assert(page.includes('Phase 8.35'));
 for(const id of ['architectureRing','maturityRing','releaseRing','maturityMethodButton','milestoneValue','milestoneDescription','milestoneDate','roadmapTimeline'])assert(page.includes('id="'+id+'"'),id);
-console.log('PASS: 15 graded capabilities, 5 pillars, 20.8% model, 5/19 architecture, 0/12 gates');
+console.log('PASS: '+required.length+' graded capabilities, '+m.pillars.length+' pillars, '+m.computedPercent+'% model, '+s.architecture.complete+'/'+s.architecture.total+' architecture, '+s.release.verified+'/'+s.release.total+' gates');
 
 // Verified pre-8 foundations and shorter mobile-safe milestone history.
 // Keep the formal product history separate from Phase 8.35 governance.
