@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "snapshotDate": "2026-11-04",
-  "snapshotLabel": "Phase 10.2 · trusted synthetic perception privacy · independently assured engineering release",
-  "sourceDescription": "Original 16-sheet Nayeon v1 master XLSM updated IN PLACE on 4 November 2026 under existing Drive file ID 1n0tDiBQCkPWluX6eakRiRfq57tflRW5L; authenticated raw re-download matched SHA-256 f0c409a5cecf61ab1a464f4f8cb7846fec95fe9b009a93915fea7d3b16004afd exactly (198828 bytes). Phase 10.2 trusted synthetic perception permission ledger: precisely 14 approved source paths (5 added, 9 modified), single immediate child 4aff3459ee127b0a7a124073aac2a9317e467301 of sealed Phase 10.1 be6c126dc5f3a6814925bb95009ef2b2e6be80b7 and annotated tag nayeon-v1-phase-10-2-trusted-perception-privacy-01 (object 443b247b89b7fb5b749b0f938b98070339018863); branch and tag remotely read back. Independent source, precommit and final release assurance GO. Three mandatory full native Windows regressions each passed 3165/3165, exit 0, in COMPLETE_UNSTAGED, EXACT_STAGED, EXACT_CHILD states. Formal architecture stays 5/19 complete, Phase 10 IN PROGRESS and normal-user release gates 0/12. Offline synthetic-only permission ledger: no actual camera/microphone/screen capture, live provider/key validation or autonomous actions.",
+  "snapshotDate": "2026-11-05",
+  "snapshotLabel": "Phase 10.3 · offline synthetic provenance and redaction integrity · independently assured engineering release",
+  "sourceDescription": "Original same-ID 16-sheet Nayeon v1 master XLSM updated IN PLACE on 5 Nov 2026 at Google Drive file ID 1n0tDiBQCkPWluX6eakRiRfq57tflRW5L; authenticated raw re-download verified identical SHA-256 704f4ca8a807a41d60ccbf44d7b65cebbc3931d080d291095f943165d99c9853 (200123 bytes). Phase 10.3 offline synthetic provenance/redaction integrity: exactly 14 reviewed source/docs/test paths (6 added, 8 modified), immediate child cacb5c320d26ffa28faf1f15a5e088029ee1453b of sealed Phase 10.2 4aff3459ee127b0a7a124073aac2a9317e467301; annotated tag nayeon-v1-phase-10-3-synthetic-provenance-redaction-01 (object ed68953eaacee301592c6349a590a17be9638be5), exact remote branch/tag readback. Independent source, staged/precommit, final release assurance GO; three mandatory full native Windows regressions each 3,195/3,195 PASS, exit 0, across COMPLETE_UNSTAGED, EXACT_STAGED, EXACT_CHILD. Broader Phase 10 IN PROGRESS, architecture 5/19 complete, consumer gates 0/12; no real screen/camera/microphone capture, OS permission or provider usage.",
   "scoring": {
     "architecture": "Strict completed architecture phases / all v1 phases. No partial credit.",
     "release": "Verified complete end-user acceptance gates / 12.",
@@ -20,22 +20,22 @@
     "verified": 0
   },
   "tests": {
-    "passed": 3165,
-    "total": 3165,
-    "scope": "Phase 10.2 full native Windows Python 3.12 regressions, each 3,165/3,165 PASS, native exit0 and OK: UNSTAGED stderr SHA256 F3DE8C1880A4C5305A5BB97B3C17C8BDB9D5E4040FE317378BDD05E2736342AD; EXACT_STAGED 5681064C879C03088083196A00D616AA1AF2D70BF023BC8F68CA1C87877E8B2F; EXACT_CHILD CC69476316F70B4BA5D750E0207325EC9D329A421B0056D9A81CA0274FB6298A. Independent release assurance GO, local Git ancestry/tree and remote branch/annotated tag verified; original 16-sheet macro-format workbook updated in place and raw byte readback verified. No actual device capture or consumer acceptance.",
+    "passed": 3195,
+    "total": 3195,
+    "scope": "Phase 10.3 3,195 native Windows Python 3.12 tests PASS in each of three full regressions (9,585 executions): COMPLETE_UNSTAGED stderr SHA256 7DAF718385532EAD5EC30D82611535F0B21487324FC56D6EE8F06A0F653309C9; EXACT_STAGED D4DDEB97D111AB9F515745F6FBF61BB5762DE5E31040720B7D650BFF489437B8; EXACT_CHILD DBE1B26B71B91ACA4FD1C1B318C86A742C0D90F4C4A4B3BC506E633E0DCAE408. All native exits 0, independently authenticated source and final assurance GO, exact immediate child GitHub branch/tag verified; same-ID Drive 16-sheet XLSM exact raw SHA-256 704f4ca8a807a41d60ccbf44d7b65cebbc3931d080d291095f943165d99c9853. Offline synthetic only; no end-user or live capture acceptance.",
     "freshClone": false
   },
   "security": {
-    "review": "Phase 10.2 independently approved exact 14-source security and historical compatibility review, precommit exact staged GO, final postcommit release assurance GO (original native Windows exit receipts); no unresolved HIGH/MEDIUM findings within offline-only synthetic permission scope. Three complete 3,165-test native Windows regressions PASS.",
-    "result": "ENGINEERING PHASE 10.2 RELEASE VERIFIED: exact 14-path immediate child 4aff3459ee127b0a7a124073aac2a9317e467301, annotated tag nayeon-v1-phase-10-2-trusted-perception-privacy-01 remotely verified, independent source/precommit/final release GO, 3×3165 full native Windows regressions PASS. Original same-ID Drive master XLSM re-downloaded, SHA-256 f0c409a5cecf61ab1a464f4f8cb7846fec95fe9b009a93915fea7d3b16004afd. Broader Phase 10 remains IN PROGRESS, architecture 5/19, consumer gates 0/12, no actual camera/screen capture, live provider, credentials, OS permission or autonomous action."
+    "review": "Phase 10.3 independent exact 14-path source, historical compatibility, precommit exact staged and final release assurance GO, material findings zero after reviewed repairs. Three full native Windows regressions 3,195/3,195 PASS each, original log hash/exit verified. Synthetic content-free provenance/redaction fixture and independent oracle only; sealed historical controls intact.",
+    "result": "ENGINEERING PHASE 10.3 GITHUB RELEASE VERIFIED: offline synthetic provenance and redaction integrity, exact 14-path immediate child cacb5c320d26ffa28faf1f15a5e088029ee1453b, tree 0773c02397b96de1ad4080017e6c8f58ed192a91 and annotated tag nayeon-v1-phase-10-3-synthetic-provenance-redaction-01 object ed68953eaacee301592c6349a590a17be9638be5 remotely read back. 3×3195 full native Windows regressions PASS, independent release GO. Original same-ID Google Drive master XLSM updated and re-downloaded byte-identically SHA-256 704f4ca8a807a41d60ccbf44d7b65cebbc3931d080d291095f943165d99c9853. Major Phase 10 IN PROGRESS, architecture 5/19, consumer gates 0/12; no actual camera/screen/mic, OS consent, production redaction or real provider use."
   },
   "repository": {
     "label": "krismcan/Mark-LV",
-    "branch": "phase10-2-trusted-perception-20261102",
-    "head": "4aff3459ee127b0a7a124073aac2a9317e467301",
-    "url": "https://github.com/krismcan/Mark-LV/tree/phase10-2-trusted-perception-20261102"
+    "branch": "phase10-3-synthetic-provenance-redaction-20261104",
+    "head": "cacb5c320d26ffa28faf1f15a5e088029ee1453b",
+    "url": "https://github.com/krismcan/Mark-LV/tree/phase10-3-synthetic-provenance-redaction-20261104"
   },
-  "latestMilestone": "Phase 10.2",
+  "latestMilestone": "Phase 10.3",
   "phases": [
     {
       "id": 0,
@@ -112,7 +112,7 @@
       "name": "Vision / Perception",
       "status": "IN PROGRESS",
       "source": "Build Plan!G15",
-      "summary": "Phase 10.2 reviewed offline synthetic perception permission ledger sealed 4 Nov 2026, with no actual camera/screen/microphone capture, native permission dialogs or live AI. Broader Phase 10 remains IN PROGRESS."
+      "summary": "Phase 10.1 offline metadata, Phase 10.2 synthetic permission ledger and Phase 10.3 synthetic provenance/redaction fixtures independently reviewed and GitHub sealed through 5 Nov 2026. No real camera/screen/microphone capture, OS consent, trusted production redaction or live provider integration. Phase 10 remains IN PROGRESS."
     },
     {
       "id": 11,
@@ -194,7 +194,7 @@
         8,
         16
       ],
-      "evidenceNote": "Computer Control (Phase 6) is COMPLETE. BYOK fake-only increments A/B are sealed but Phase 8 is IN PROGRESS; Phase 10.2 adds a reviewed offline synthetic permission ledger. No real credentials, hardware capture or end-user acceptance."
+      "evidenceNote": "Computer Control (Phase 6) COMPLETE. BYOK fake-only increments A/B sealed, but Phase 8 remains IN PROGRESS. Phase 10.2 synthetic privacy ledger and Phase 10.3 content-free provenance/redaction are offline engineering evidence only. No real credentials, device capture or normal-user acceptance."
     },
     {
       "id": "intelligence",
@@ -217,7 +217,7 @@
         12,
         15
       ],
-      "evidenceNote": "Phase 10.1 offline perception foundation and Phase 10.2 synthetic permission ledger independently reviewed, GitHub sealed with three full native regressions each. Actual camera/screen capture, real OS permissions and live vision are not enabled; Phase 10 remains IN PROGRESS."
+      "evidenceNote": "Phase 10.1 offline metadata, Phase 10.2 synthetic permission ledger and Phase 10.3 synthetic provenance/redaction fixtures independently reviewed and GitHub sealed, all with three native full regressions. Real device capture, OS permission, production redaction and live vision not enabled; Phase 10 remains IN PROGRESS."
     },
     {
       "id": "product",
@@ -316,7 +316,7 @@
       "name": "Vision",
       "pillar": "interaction",
       "evidence": "BOUNDED/UNDERWAY",
-      "detail": "Independently reviewed/tested Phase 10.1 offline perception metadata contracts. No real screen/camera capture, redaction attestation, permissioned visual inspection or completed vision user journey.",
+      "detail": "Phase 10.1 offline perception metadata, Phase 10.2 synthetic permission ledger and Phase 10.3 synthetic provenance/redaction are independently reviewed, GitHub sealed and native-regression verified. No real screen/camera/microphone capture, live permissions, verified production redaction, provider calls or accepted normal-user vision task.",
       "source": "Capability Review!D15",
       "relatedPhases": "10"
     },
@@ -557,6 +557,16 @@
       "summary": "Trusted synthetic perception privacy ledger · offline-only; three full Windows regressions; GitHub and original master verified",
       "regression": 3165,
       "commit": "4aff3459ee127b0a7a124073aac2a9317e467301"
+    },
+    {
+      "name": "Phase 10.3",
+      "date": "5 Nov 2026",
+      "status": "CLOSED",
+      "sortOrder": 10.3,
+      "summary": "Offline synthetic provenance/redaction integrity · exact 14-path GitHub engineering seal, original 16-sheet master verified; no live capture",
+      "detail": "Exact 14 reviewed changes (6 added, 8 modified); deterministic offline synthetic provenance fixture, content-free redaction oracle, hardened post-import self-pin integrity and unchanged historical trust boundaries. One immediate child cacb5c320d26ffa28faf1f15a5e088029ee1453b of 4aff3459ee127b0a7a124073aac2a9317e467301, exact tree 0773c02397b96de1ad4080017e6c8f58ed192a91, annotated tag nayeon-v1-phase-10-3-synthetic-provenance-redaction-01 object ed68953eaacee301592c6349a590a17be9638be5 verified on GitHub. Independent source, precommit and final release assurance GO, zero material findings; three full native Windows regressions each 3,195/3,195 PASS, native exit 0 (9,585 test executions). Original same-ID 16-sheet master XLSM 1n0tDiBQCkPWluX6eakRiRfq57tflRW5L updated in place and exact re-download SHA-256 704f4ca8a807a41d60ccbf44d7b65cebbc3931d080d291095f943165d99c9853 verified. Formal architecture remains 5/19, Phase 10 IN PROGRESS, consumer gates 0/12; no real screen/camera/mic capture, OS consent, provider calls, privileged service or consumer feature acceptance.",
+      "regression": 3195,
+      "commit": "cacb5c320d26ffa28faf1f15a5e088029ee1453b"
     }
   ],
   "disclosure": "Publicly approved summary of project status only. Original workbook, internal tests, credential information and protected engineering evidence are excluded.",
@@ -662,9 +672,9 @@
       },
       "vision": {
         "level": 1,
-        "evidence": "Independently reviewed, SHA-pinned and three-regression-verified Phase 10.1 offline observation metadata contracts.",
-        "limitation": "No real screen/camera capture, consent, trusted redaction provenance, visual understanding or independent visual-state task. Major Phase 10 IN PROGRESS.",
-        "workbookReferences": "Capability Review!D15:E15; Phase Evidence!C16:F16; Implementation Progress!A168:H168",
+        "evidence": "Independently reviewed, SHA-pinned, GitHub-sealed and three-regression-verified Phase 10.1 offline perception, 10.2 synthetic privacy, and 10.3 content-free provenance/redaction foundations; Phase 10.3 3×3195 PASS.",
+        "limitation": "No real screen/camera capture, OS consent, production redaction/visual understanding or accepted installed-user journey; major Phase 10 remains IN PROGRESS.",
+        "workbookReferences": "Capability Review!D15:E15; Phase Evidence!C16:F16; Implementation Progress!A168:H170",
         "reviewStatus": "Provisional analyst classification based on independent source/security reviews; not release acceptance"
       },
       "browser": {
@@ -756,18 +766,18 @@
       "A level 2 rating describes bounded evidence, not 50% of a capability's total engineering effort or user-facing features.",
       "The 0/12 release-gates count is a separate strict measure. No capability has a level 3 or 4 rating in this snapshot.",
       "Desktop UI has a bounded Phases 8.30–8.34 bounded offline-workspace exception despite formal Phase 15 NOT STARTED; that phase's release exit remains open.",
-      "Phase 10.1 reviewed offline perception contracts earn maturity level 1 only; no camera capture or user perception journey accepted. No credit for unverified or optional commercial work."
+      "Phase 10.1–10.3 reviewed offline synthetic perception, privacy and provenance/redaction foundations retain vision maturity level 1 only; no real capture, production redaction or normal-user vision journey accepted."
     ],
-    "evidenceSource": "Original same-ID 16-sheet private master workbook updated 2 Nov 2026, SHA256 5F4C3AEFC40E909C70609D4173373C3D03F4D9E9673284D96AEF3B22E7808502; exact GitHub Phase 10.1 release independently verified. Provisional maturity assessment, not a product acceptance signoff.",
-    "latestEngineeringCommit": "4aff3459ee127b0a7a124073aac2a9317e467301"
+    "evidenceSource": "Provisional analyst maturity rubric originally assessed 2 Nov 2026, not re-scored by Phase 10.3. Original same-ID 16-sheet master XLSM updated 5 Nov 2026 and raw SHA-256 704f4ca8a807a41d60ccbf44d7b65cebbc3931d080d291095f943165d99c9853 verified, GitHub Phase 10.3 engineering seal cacb5c320d26ffa28faf1f15a5e088029ee1453b. End-user acceptance remains 0/12.",
+    "latestEngineeringCommit": "cacb5c320d26ffa28faf1f15a5e088029ee1453b"
   },
   "governance": {
     "latestAssessment": "Phase 8.35",
     "status": "CLOSED — GOVERNANCE ONLY",
     "date": "2026-10-19",
-    "summary": "Phase 8.35 governance-only assessment CLOSED, unchanged. Phase 10.2 offline synthetic perception privacy ledger published 4 Nov 2026 with exactly 14 source paths, three native Windows full 3165/3165 regression passes, independent final release assurance GO and remote branch/tag verification. Original master workbook updated in place and byte-verified; Phase10 still IN PROGRESS; Phase9 isolated; BYOK C1 and PRC production remain HOLD; architecture 5/19 and consumer 0/12.",
-    "lastProductMilestone": "Phase 10.2",
-    "originalWorkbook": "Original existing 16-sheet macro-format XLSM updated IN PLACE 4 Nov 2026 in Google Drive, unchanged file ID 1n0tDiBQCkPWluX6eakRiRfq57tflRW5L; authenticated raw downloaded SHA-256 f0c409a5cecf61ab1a464f4f8cb7846fec95fe9b009a93915fea7d3b16004afd exactly equals prepared payload, 198828 bytes. Workbook has no embedded vbaProject.bin in original or updated package; no VBA was stripped.",
+    "summary": "Phase 8.35 governance-only assessment remains CLOSED, unchanged. Phase 10.3 synthetic provenance/redaction engineering milestone sealed and nonforce-published 5 Nov 2026, exact 14-path source, three native Windows full 3,195/3,195 regressions PASS, independent final assurance GO, remote tag/branch verified. Original master 16-sheet XLSM updated IN PLACE with exact SHA-256 704f4ca8a807a41d60ccbf44d7b65cebbc3931d080d291095f943165d99c9853. Phase 10 IN PROGRESS; Phase 9 isolated; BYOK C1 and PRC production holds remain; architecture 5/19, consumer gates 0/12.",
+    "lastProductMilestone": "Phase 10.3",
+    "originalWorkbook": "Original 16-sheet macro-format XLSM updated IN PLACE 5 Nov 2026 in Google Drive under unchanged file ID 1n0tDiBQCkPWluX6eakRiRfq57tflRW5L; raw re-download SHA-256 704f4ca8a807a41d60ccbf44d7b65cebbc3931d080d291095f943165d99c9853 equals locally verified prepared bytes, 200123 bytes, 23 original ZIP package parts. Existing file contained no vbaProject.bin; none removed. Only seven intentional worksheet parts changed.",
     "batching": "HOLD — PRC production not released; advance product phases only per original roadmap and security prerequisites",
     "reportPath": "docs/phase-8-35-workflow-assessment.md"
   }
